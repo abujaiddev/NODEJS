@@ -51,10 +51,9 @@ exports.book_delete = async (req, res) => {
 exports.book_update = async (req, res) => {
   try {
     const book = await Book.findByIdAndUpdate(req.params.id, req.body);
-    book.save();
+    await book.save();
     res.json({
-      msg: "Book is updated",
-      book
+      msg: "Book is updated"
     });
   } catch (err) {
     res.status(500).send(err);

@@ -12,7 +12,16 @@ const bookSchema = new Schema({
   createdAt: {
     type: Date,
     default: Date.now
+  },
+  updatedAt: {
+    type: Date,
+    default: function() {
+      return Date.now();
+    }
   }
 });
-
+bookSchema.pre("save", function(done) {
+  this.updatedAt = Date.now();
+  done();
+});
 module.exports = mongoose.model("Book", bookSchema);
