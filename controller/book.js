@@ -48,3 +48,15 @@ exports.book_delete = async (req, res) => {
 };
 
 // book update
+exports.book_update = async (req, res) => {
+  try {
+    const book = await Book.findByIdAndUpdate(req.params.id, req.body);
+    book.save();
+    res.json({
+      msg: "Book is updated",
+      book
+    });
+  } catch (err) {
+    res.status(500).send(err);
+  }
+};
