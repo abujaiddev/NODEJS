@@ -4,9 +4,16 @@ const bookSchema = new Schema({
   book_name: {
     type: String,
     required: true,
-    default: "Book"
+    trim: true,
+    lowercase: true
   },
   book_author: {
+    type: String
+  },
+  description: {
+    type: String
+  },
+  book_image: {
     type: String
   },
   createdAt: {
