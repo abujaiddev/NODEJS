@@ -1,34 +1,32 @@
 const Book = require("../models/book");
 const User = require("../models/user");
-const auth = require("../middleware/auth");
+// const auth = require("../middleware/auth");
 
 // book create
-exports.create = async (req, auth, res) => {
-  // console.log("=================", req);
+exports.create = async (req, res) => {
   try {
-    const user = await User.findById(req.user.id);
-    // const id = req.body.id;
-    // const user = await User.findById(id);
+    const user = await User.findById(req.user.id).select("-password");
     // console.log("========", user);
-    // const book = new Book({
-    //   book_name: req.body.book_name,
-    //   book_author: req.body.book_author
-    //   // username: user.username
-    // });
-    // await book.save();
-    // res.json(book);
+    const book = new Book({
+      book_name: req.body.book_name,
+      book_author: req.body.book_author,
+      username: user.username,
+      user: req.user.id
+    });
+    await book.save();
+    res.json(book);
   } catch (err) {
-    // res.json({
-    //   status: 500,
-    //   msg: "server error"
-    // });
+    res.json({
+      status: 500,
+      msg: "server error"
+    });
   }
 };
 
 // books list
 exports.books = async (req, res) => {
   try {
-    const book = await Book.find();
+    const book = await Book.find({ user: req.user.id }).populate("user");
     res.json(book);
   } catch (err) {
     res.json({

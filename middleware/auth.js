@@ -1,16 +1,19 @@
 const jwt = require("jsonwebtoken");
 
-const auth = (req, res, next) => {
+const auth = async (req, res, next) => {
+  const token = req.header("Authorization");
   try {
-    const token = req.headers.authorization;
-    const decodedToken = jwt.verify(token, "jwtSecret");
-    // req.user = decodedToken.user;
-    console.log("++++++++++>>>>>>>>>>>>>>>>", decodedToken.user);
-    next();
-  } catch (e) {
-    res.status(401).json({
-      error: new Error("Invalid request!")
+    await jwt.verify(token, "jwtSecret", (error, decoded) => {
+      if (error) {
+        res.status(401).json({ msg: "Token is not valid" });
+      } else {
+        req.user = decoded.user;
+        next();
+      }
     });
+  } catch (err) {
+    console.error("something wrong with auth middleware");
+    res.status(500).json({ msg: "Server Error" });
   }
 };
 
