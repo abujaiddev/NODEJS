@@ -13,7 +13,7 @@ router.post("/auth", authController.auth);
 router.post("/book", auth, bookController.create);
 router.get("/books", auth, bookController.books);
 router.get("/book/:id", bookController.book);
-router.delete("/book/:id", bookController.book_delete);
+router.delete("/book/:id", auth, bookController.book_delete);
 router.put("/book/:id", bookController.book_update);
 
 module.exports = router;

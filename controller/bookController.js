@@ -1,6 +1,5 @@
 const Book = require("../models/book");
 const User = require("../models/user");
-// const auth = require("../middleware/auth");
 
 // book create
 exports.create = async (req, res) => {
@@ -49,11 +48,12 @@ exports.book = async (req, res) => {
 // book delete
 exports.book_delete = async (req, res) => {
   try {
-    const book = await Book.findByIdAndDelete({ _id: req.params.id });
-    if (!book) {
-      res.status(404).json({ msg: "No item found" });
+    const book = await Book.findById({ _id: req.params.id });
+    if (book.user.toString() !== req.user.id) {
+      res.status(401).json({ msg: "User not authorized" });
     } else {
-      res.json(book);
+      await book.remove();
+      res.json({ msg: "book removed" });
     }
   } catch (err) {
     res.json({ status: 500, msg: "server error" });
