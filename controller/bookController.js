@@ -4,23 +4,24 @@ const auth = require("../middleware/auth");
 
 // book create
 exports.create = async (req, auth, res) => {
-  console.log("=============>", auth);
+  // console.log("=================", req);
   try {
-    const id = req.body.id;
+    const user = await User.findById(req.user.id);
+    // const id = req.body.id;
     // const user = await User.findById(id);
     // console.log("========", user);
-    const book = new Book({
-      book_name: req.body.book_name,
-      book_author: req.body.book_author
-      // username: user.username
-    });
-    await book.save();
-    res.json(book);
+    // const book = new Book({
+    //   book_name: req.body.book_name,
+    //   book_author: req.body.book_author
+    //   // username: user.username
+    // });
+    // await book.save();
+    // res.json(book);
   } catch (err) {
-    res.json({
-      status: 500,
-      msg: "server error"
-    });
+    // res.json({
+    //   status: 500,
+    //   msg: "server error"
+    // });
   }
 };
 
