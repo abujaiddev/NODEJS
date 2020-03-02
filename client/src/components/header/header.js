@@ -1,15 +1,16 @@
 import React, { Fragment } from "react";
-import { Link, withRouter } from "react-router-dom";
+import { Link, withRouter, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import { logout } from "../store/actions/authAction";
 
 class Header extends React.Component {
   handleLogout = () => {
     this.props.logout();
-    this.props.history.push("/");
+    // this.props.history.push("/");
+    window.location.href = "/";
   };
   render() {
-    const { isAuthenticated } = this.props.auth;
+    const { isAuthenticated, user } = this.props.auth;
     return (
       <Fragment>
         {isAuthenticated ? (
@@ -40,6 +41,13 @@ class Header extends React.Component {
               </div>
               <div className="navbar navbar-expand-lg navbar-light bg-light">
                 <ul className="navbar-nav ml-auto">
+                  <li className="nav-item">
+                    <Link className="nav-link" to="#">
+                      <span>
+                        <b>Welocme</b> {user.user.name}
+                      </span>
+                    </Link>
+                  </li>
                   <li className="nav-item">
                     <Link
                       className="nav-link"

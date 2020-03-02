@@ -34,7 +34,6 @@ class Login extends Component {
     }
   }
   render() {
-    // console.log(this.props);
     return (
       <div className="container-fluid h-100 ">
         <hr />
@@ -88,7 +87,6 @@ class Login extends Component {
   }
 }
 const mapStateToProps = state => {
-  //   console.log("==========", state);
   return {
     auth: state.auth
   };
