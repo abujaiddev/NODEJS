@@ -12,6 +12,7 @@ router.post("/auth", authController.auth);
 // books
 router.post("/book", auth, bookController.create);
 router.get("/books", auth, bookController.books);
+router.get("/booksByUser", bookController.booksByUser);
 router.get("/book/:id", bookController.book);
 router.delete("/book/:id", auth, bookController.book_delete);
 router.put("/book/:id", bookController.book_update);

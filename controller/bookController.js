@@ -5,7 +5,6 @@ const User = require("../models/user");
 exports.create = async (req, res) => {
   try {
     const user = await User.findById(req.user.id).select("-password");
-    // console.log("========", user);
     const book = new Book({
       book_name: req.body.book_name,
       book_author: req.body.book_author,
@@ -26,6 +25,18 @@ exports.create = async (req, res) => {
 exports.books = async (req, res) => {
   try {
     const book = await Book.find({ user: req.user.id }).populate("user");
+    res.json(book);
+  } catch (err) {
+    res.json({
+      status: 500,
+      msg: "server error"
+    });
+  }
+};
+
+exports.booksByUser = async (req, res) => {
+  try {
+    const book = await Book.find().populate("user", ["username", "email"]);
     res.json(book);
   } catch (err) {
     res.json({

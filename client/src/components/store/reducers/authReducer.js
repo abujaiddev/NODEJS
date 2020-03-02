@@ -1,4 +1,4 @@
-import { USER_LOGIN } from "../actions/actionTypes";
+import { SET_CURRENT_USER } from "../actions/actionTypes";
 
 const initialState = {
   isAuthenticated: null,
@@ -6,10 +6,10 @@ const initialState = {
 };
 export const authReducer = (state = initialState, action) => {
   switch (action.type) {
-    case USER_LOGIN:
+    case SET_CURRENT_USER:
       return {
-        isAuthenticated: action.payload.token,
-        user: action.payload.token
+        isAuthenticated: action.payload,
+        user: action.payload
       };
     default:
       return state;

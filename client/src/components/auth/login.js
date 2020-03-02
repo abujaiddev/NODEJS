@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import { userLogin } from "../store/actions/auth";
+import { userLogin } from "../store/actions/authAction";
 import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
 
 class Login extends Component {
   constructor(props) {
@@ -13,16 +14,27 @@ class Login extends Component {
   handaleChange = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
-
   onSubmit = e => {
     e.preventDefault();
     const { email, password } = this.state;
     const data = { email, password };
 
-    this.props.userLogin(data);
+    this.props.userLogin(data, this.props.history);
   };
-
+  handleReset = e => {
+    e.preventDefault();
+    this.setState({
+      email: "",
+      password: ""
+    });
+  };
+  componentDidMount() {
+    if (this.props.auth.isAuthenticated) {
+      this.props.history.push("/dashboard/UserDashboard");
+    }
+  }
   render() {
+    // console.log(this.props);
     return (
       <div className="container-fluid h-100 ">
         <hr />
@@ -53,7 +65,10 @@ class Login extends Component {
                 <div className="container">
                   <div className="row">
                     <div className="col">
-                      <button className="col-6 btn btn-secondary btn-sm float-left">
+                      <button
+                        className="col-6 btn btn-secondary btn-sm float-left"
+                        onClick={this.handleReset}
+                      >
                         Reset
                       </button>
                     </div>
@@ -78,4 +93,4 @@ const mapStateToProps = state => {
     auth: state.auth
   };
 };
-export default connect(mapStateToProps, { userLogin })(Login);
+export default withRouter(connect(mapStateToProps, { userLogin })(Login));
