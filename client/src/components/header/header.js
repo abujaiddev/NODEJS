@@ -16,6 +16,7 @@ import AccountCircle from "@material-ui/icons/AccountCircle";
 import MailIcon from "@material-ui/icons/Mail";
 import NotificationsIcon from "@material-ui/icons/Notifications";
 import MoreIcon from "@material-ui/icons/MoreVert";
+import { Fragment } from "react";
 
 const useStyles = makeStyles(theme => ({
   grow: {
@@ -120,7 +121,6 @@ function Header(props) {
       onClose={handleMenuClose}
     >
       <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-      <MenuItem onClick={handleMenuClose}>My account</MenuItem>
       <MenuItem onClick={logout}>Logout</MenuItem>
     </Menu>
   );
@@ -165,8 +165,7 @@ function Header(props) {
       </MenuItem>
     </Menu>
   );
-
-  return (
+  const authLinks = (
     <div className={classes.grow}>
       <AppBar position="static">
         <Toolbar>
@@ -234,6 +233,7 @@ function Header(props) {
       {renderMenu}
     </div>
   );
+  return <Fragment>{props.auth.isAuthenticated ? authLinks : " "}</Fragment>;
 }
 
 const mapStateToProps = state => {
