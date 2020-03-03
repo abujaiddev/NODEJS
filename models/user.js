@@ -11,6 +11,13 @@ const userSchema = new Schema({
   password: {
     type: String
   },
+  avatarColor: {
+    type: String,
+    required: true
+  },
+  bio: {
+    type: String
+  },
   createAt: {
     type: Date,
     default: Date.now

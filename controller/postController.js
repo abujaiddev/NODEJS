@@ -1,18 +1,17 @@
-const Book = require("../models/book");
+const Post = require("../models/post");
 const User = require("../models/user");
 
 // book create
 exports.create = async (req, res) => {
   try {
     const user = await User.findById(req.user.id).select("-password");
-    const book = new Book({
-      book_name: req.body.book_name,
-      book_author: req.body.book_author,
+    const post = new Post({
+      ...req.body,
       username: user.username,
       user: req.user.id
     });
-    await book.save();
-    res.json(book);
+    await post.save();
+    res.json(post);
   } catch (err) {
     res.json({
       status: 500,

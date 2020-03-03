@@ -2,11 +2,12 @@ import React, { Fragment } from "react";
 import { Link, withRouter, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import { logout } from "../store/actions/authAction";
+import Sidebar from "./sidebar";
+import Button from "@material-ui/core/Button";
 
 class Header extends React.Component {
   handleLogout = () => {
     this.props.logout();
-    // this.props.history.push("/");
     window.location.href = "/";
   };
   render() {
@@ -14,53 +15,44 @@ class Header extends React.Component {
     return (
       <Fragment>
         {isAuthenticated ? (
-          <Fragment>
-            <nav className="navbar navbar-expand-lg navbar-light bg-light">
-              <Link className="navbar-brand" to="#">
-                Navbar
-              </Link>
-              <button
-                className="navbar-toggler"
-                type="button"
-                data-toggle="collapse"
-                data-target="#navbarNav"
-                aria-controls="navbarNav"
-                aria-expanded="false"
-                aria-label="Toggle navigation"
-              >
-                <span className="navbar-toggler-icon"></span>
-              </button>
-              <div className="collapse navbar-collapse" id="navbarNav">
-                <ul className="navbar-nav">
-                  <li className="nav-item active">
-                    <Link className="nav-link" to="/home">
-                      Home
-                    </Link>
-                  </li>
-                </ul>
+          <div className="container-fluid">
+            <div className="row">
+              <div className="col-sm-2">
+                <Sidebar />
+                <Button variant="contained" color="primary">
+                  Hello World
+                </Button>
               </div>
-              <div className="navbar navbar-expand-lg navbar-light bg-light">
-                <ul className="navbar-nav ml-auto">
-                  <li className="nav-item">
-                    <Link className="nav-link" to="#">
-                      <span>
-                        <b>Welocme</b> {user.user.name}
-                      </span>
-                    </Link>
-                  </li>
-                  <li className="nav-item">
-                    <Link
-                      className="nav-link"
-                      to="#"
-                      onClick={this.handleLogout}
-                    >
-                      Logout
-                    </Link>
-                  </li>
-                </ul>
+              <div className="col-sm-10">
+                <nav className="navbar navbar-expand-lg navbar-light bg-light">
+                  <div
+                    className="collapse navbar-collapse"
+                    id="navbarNav"
+                  ></div>
+                  <div className="navbar navbar-expand-lg navbar-light bg-light">
+                    <ul className="navbar-nav ml-auto">
+                      <li className="nav-item">
+                        <Link className="nav-link" to="#">
+                          <span>
+                            <b>Welocme</b> {user.user.name}
+                          </span>
+                        </Link>
+                      </li>
+                      <li className="nav-item">
+                        <Link
+                          className="nav-link"
+                          to="#"
+                          onClick={this.handleLogout}
+                        >
+                          Logout
+                        </Link>
+                      </li>
+                    </ul>
+                  </div>
+                </nav>
               </div>
-            </nav>
-          </Fragment>
+            </div>
+          </div>
         ) : (
           <Fragment>
             <nav className="navbar navbar-expand-lg navbar-light bg-light">

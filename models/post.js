@@ -1,26 +1,18 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const bookSchema = new Schema({
+const postSchema = new Schema({
   user: {
     type: Schema.Types.ObjectId,
     ref: "User"
   },
-  book_name: {
+  text: {
     type: String,
     required: true,
     trim: true,
     lowercase: true
   },
-  book_author: {
-    type: String
-  },
-  description: {
-    type: String
-  },
-  book_image: {
-    type: String
-  },
+
   createdAt: {
     type: Date,
     default: Date.now
@@ -32,8 +24,8 @@ const bookSchema = new Schema({
     }
   }
 });
-bookSchema.pre("save", function(done) {
+postSchema.pre("save", function(done) {
   this.updatedAt = Date.now();
   done();
 });
-module.exports = mongoose.model("Book", bookSchema);
+module.exports = mongoose.model("Post", postSchema);
