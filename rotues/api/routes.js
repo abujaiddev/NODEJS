@@ -9,12 +9,11 @@ const auth = require("../../middleware/auth");
 router.post("/users/register", userController.register);
 router.post("/auth", authController.auth);
 
-// books
+// posts
 router.post("/post", auth, postController.create);
-router.get("/books", auth, postController.books);
-router.get("/booksByUser", postController.booksByUser);
-router.get("/book/:id", postController.book);
-router.delete("/book/:id", auth, postController.book_delete);
-router.put("/book/:id", postController.book_update);
+router.get("/posts", auth, postController.posts);
+router.get("/post/:id", postController.post);
+router.delete("/post/:id", auth, postController.post_delete);
+router.put("/post/:id", postController.post_update);
 
 module.exports = router;

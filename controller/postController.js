@@ -21,22 +21,10 @@ exports.create = async (req, res) => {
 };
 
 // books list
-exports.books = async (req, res) => {
+exports.posts = async (req, res) => {
   try {
-    const book = await Book.find({ user: req.user.id }).populate("user");
-    res.json(book);
-  } catch (err) {
-    res.json({
-      status: 500,
-      msg: "server error"
-    });
-  }
-};
-
-exports.booksByUser = async (req, res) => {
-  try {
-    const book = await Book.find().populate("user", ["username", "email"]);
-    res.json(book);
+    const post = await Post.find({ user: req.user.id }).populate("user");
+    res.json(post);
   } catch (err) {
     res.json({
       status: 500,
@@ -46,24 +34,24 @@ exports.booksByUser = async (req, res) => {
 };
 
 // get book
-exports.book = async (req, res) => {
+exports.post = async (req, res) => {
   try {
-    const book = await Book.findById(req.params.id);
-    res.json(book);
+    const post = await Post.findById(req.params.id);
+    res.json(post);
   } catch (err) {
     res.json({ status: 500, msg: "server error" });
   }
 };
 
 // book delete
-exports.book_delete = async (req, res) => {
+exports.post_delete = async (req, res) => {
   try {
-    const book = await Book.findById({ _id: req.params.id });
-    if (book.user.toString() !== req.user.id) {
+    const post = await Post.findById({ _id: req.params.id });
+    if (post.user.toString() !== req.user.id) {
       res.status(401).json({ msg: "User not authorized" });
     } else {
-      await book.remove();
-      res.json({ msg: "book removed" });
+      await post.remove();
+      res.json({ msg: "post removed" });
     }
   } catch (err) {
     res.json({ status: 500, msg: "server error" });
@@ -71,12 +59,12 @@ exports.book_delete = async (req, res) => {
 };
 
 // book update
-exports.book_update = async (req, res) => {
+exports.post_update = async (req, res) => {
   try {
-    const book = await Book.findByIdAndUpdate(req.params.id, req.body);
-    await book.save();
+    const post = await Post.findByIdAndUpdate(req.params.id, req.body);
+    await post.save();
     res.json({
-      msg: "Book is updated"
+      msg: "post is updated"
     });
   } catch (err) {
     res.status(500).send(err);
