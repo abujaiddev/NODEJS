@@ -45,8 +45,7 @@ const styles = theme => ({
     marginTop: theme.spacing.unit * 2
   }
 });
-
-class Login extends Component {
+class Signup extends Component {
   render() {
     const { classes } = this.props;
     return (
@@ -54,9 +53,18 @@ class Login extends Component {
         <CssBaseline />
         <Container maxWidth="sm">
           <Paper className={classes.paper}>
-            <Avatar className={classes.avatar}>L</Avatar>
-            <Typography variant="h6">Log In</Typography>
+            <Avatar className={classes.avatar}>C</Avatar>
+            <Typography variant="h6">Sign Up</Typography>
             <form action="">
+              <FormControl margin="normal" required fullWidth>
+                <InputLabel htmlFor="email">User Name</InputLabel>
+                <Input
+                  onChange={this.handleInputChange}
+                  name="username"
+                  autoComplete="username"
+                  autoFocus
+                />
+              </FormControl>
               <FormControl margin="normal" required fullWidth>
                 <InputLabel htmlFor="email">Email Address</InputLabel>
                 <Input
@@ -72,13 +80,13 @@ class Login extends Component {
                 <Input name="password" />
               </FormControl>
               <Button variant="contained" color="primary" fullWidth>
-                Log In
+                Create Account
               </Button>
               <Typography variant="body1" className={classes.footer}>
-                Don't have an account?
-                <Link to="/signup" className={classes.link}>
+                Already have an account?
+                <Link to="/" className={classes.link}>
                   {" "}
-                  Sign Up
+                  Log In
                 </Link>
               </Typography>
             </form>
@@ -88,4 +96,4 @@ class Login extends Component {
     );
   }
 }
-export default withStyles(styles)(Login);
+export default withStyles(styles)(Signup);
