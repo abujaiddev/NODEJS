@@ -1,5 +1,7 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
+import { userLogin } from "../store/actions/authAction";
+import { connect } from "react-redux";
 import {
   withStyles,
   Container,
@@ -21,16 +23,16 @@ const styles = theme => ({
     top: "40%",
     left: "50%",
     transform: "translate(-50%, -50%)",
-    padding: theme.spacing.unit * 4,
+    padding: theme.spacing(4),
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    width: theme.spacing.unit * 50,
+    width: theme.spacing(50),
     backgroundColor: "theme.palette.background.paper",
     boxShadow: theme.shadows[5]
   },
   footer: {
-    marginTop: theme.spacing.unit * 2,
+    marginTop: theme.spacing(2),
     textAlign: "center"
   },
   link: {
@@ -42,13 +44,32 @@ const styles = theme => ({
   },
   avatar: {
     backgroundColor: "#f50057",
-    marginTop: theme.spacing.unit * 2
+    marginTop: theme.spacing(2)
   }
 });
 
 class Login extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      email: "",
+      password: ""
+    };
+  }
+  handaleChange = e => {
+    this.setState({ [e.target.name]: e.target.value });
+  };
+  handleSubmit = e => {
+    e.preventDefault();
+    const { email, password } = this.state;
+    const data = { email, password };
+
+    this.props.userLogin(data, this.props.history);
+  };
+
   render() {
     const { classes } = this.props;
+    const { email, password } = this.state;
     return (
       <React.Fragment>
         <CssBaseline />
@@ -56,36 +77,55 @@ class Login extends Component {
           <Paper className={classes.paper}>
             <Avatar className={classes.avatar}>L</Avatar>
             <Typography variant="h6">Log In</Typography>
-            <form action="">
+            <form onSubmit={this.handleSubmit} noValidate>
               <FormControl margin="normal" required fullWidth>
                 <InputLabel htmlFor="email">Email Address</InputLabel>
                 <Input
-                  onChange={this.handleInputChange}
+                  type="email"
+                  onChange={this.handaleChange}
                   id="email"
                   name="email"
-                  autoComplete="email"
-                  autoFocus
+                  value={email}
                 />
               </FormControl>
               <FormControl margin="normal" required fullWidth>
                 <InputLabel htmlFor="password">Password</InputLabel>
-                <Input name="password" />
+                <Input
+                  type="password"
+                  name="password"
+                  value={password}
+                  onChange={this.handaleChange}
+                  autoFocus
+                />
               </FormControl>
-              <Button variant="contained" color="primary" fullWidth>
+              <Button
+                type="submit"
+                variant="contained"
+                color="primary"
+                fullWidth
+              >
                 Log In
               </Button>
-              <Typography variant="body1" className={classes.footer}>
-                Don't have an account?
-                <Link to="/signup" className={classes.link}>
-                  {" "}
-                  Sign Up
-                </Link>
-              </Typography>
             </form>
+            <Typography variant="body1" className={classes.footer}>
+              Don't have an account?
+              <Link to="/signup" className={classes.link}>
+                {" "}
+                Sign Up
+              </Link>
+            </Typography>
           </Paper>
         </Container>
       </React.Fragment>
     );
   }
 }
-export default withStyles(styles)(Login);
+
+const mapStateToProps = state => {
+  return {
+    auth: state.auth
+  };
+};
+export default connect(mapStateToProps, { userLogin })(
+  withStyles(styles)(Login)
+);

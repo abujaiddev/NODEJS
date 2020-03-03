@@ -6,14 +6,15 @@ const userSchema = new Schema({
     unique: true
   },
   email: {
-    type: String
-  },
-  password: {
-    type: String
-  },
-  avatarColor: {
     type: String,
     required: true
+  },
+  password: {
+    type: String,
+    required: true
+  },
+  avatarColor: {
+    type: String
   },
   bio: {
     type: String

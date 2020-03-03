@@ -8,7 +8,7 @@ import Button from "@material-ui/core/Button";
 class Header extends React.Component {
   handleLogout = () => {
     this.props.logout();
-    window.location.href = "/";
+    window.location.href = "/login";
   };
   render() {
     const { isAuthenticated, user } = this.props.auth;

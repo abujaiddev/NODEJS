@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import { registerUser } from "../store/actions/authAction";
 import {
   withStyles,
   Container,
@@ -12,6 +13,7 @@ import {
   InputLabel,
   Avatar
 } from "@material-ui/core";
+import { connect } from "react-redux";
 const styles = theme => ({
   root: {
     backgroundColor: "red"
@@ -21,16 +23,16 @@ const styles = theme => ({
     top: "40%",
     left: "50%",
     transform: "translate(-50%, -50%)",
-    padding: theme.spacing.unit * 4,
+    padding: theme.spacing(4),
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    width: theme.spacing.unit * 50,
+    width: theme.spacing(50),
     backgroundColor: "theme.palette.background.paper",
     boxShadow: theme.shadows[5]
   },
   footer: {
-    marginTop: theme.spacing.unit * 2,
+    marginTop: theme.spacing(2),
     textAlign: "center"
   },
   link: {
@@ -42,12 +44,38 @@ const styles = theme => ({
   },
   avatar: {
     backgroundColor: "#f50057",
-    marginTop: theme.spacing.unit * 2
+    marginTop: theme.spacing(2)
   }
 });
+
 class Signup extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      username: "",
+      email: "",
+      password: ""
+    };
+  }
+  handaleChange = e => {
+    this.setState({ [e.target.name]: e.target.value });
+  };
+  handaleSubmit = e => {
+    e.preventDefault();
+    alert("hello");
+
+    const { username, email, password } = this.state;
+    const user = {
+      username,
+      email,
+      password
+    };
+
+    this.props.registerUser(user, this.props.history);
+  };
   render() {
     const { classes } = this.props;
+    const { username, email, password } = this.state;
     return (
       <React.Fragment>
         <CssBaseline />
@@ -55,45 +83,66 @@ class Signup extends Component {
           <Paper className={classes.paper}>
             <Avatar className={classes.avatar}>C</Avatar>
             <Typography variant="h6">Sign Up</Typography>
-            <form action="">
+            <form onSubmit={this.handaleSubmit} noValidate>
               <FormControl margin="normal" required fullWidth>
                 <InputLabel htmlFor="email">User Name</InputLabel>
                 <Input
+                  type="text"
                   onChange={this.handleInputChange}
                   name="username"
+                  value={username}
                   autoComplete="username"
-                  autoFocus
+                  onChange={this.handaleChange}
                 />
               </FormControl>
               <FormControl margin="normal" required fullWidth>
                 <InputLabel htmlFor="email">Email Address</InputLabel>
                 <Input
+                  type="email"
                   onChange={this.handleInputChange}
-                  id="email"
                   name="email"
+                  value={email}
                   autoComplete="email"
-                  autoFocus
+                  onChange={this.handaleChange}
                 />
               </FormControl>
               <FormControl margin="normal" required fullWidth>
                 <InputLabel htmlFor="password">Password</InputLabel>
-                <Input name="password" />
+                <Input
+                  type="password"
+                  name="password"
+                  value={password}
+                  onChange={this.handaleChange}
+                />
               </FormControl>
-              <Button variant="contained" color="primary" fullWidth>
+              <Button
+                type="submit"
+                variant="contained"
+                color="primary"
+                fullWidth
+              >
                 Create Account
               </Button>
-              <Typography variant="body1" className={classes.footer}>
-                Already have an account?
-                <Link to="/" className={classes.link}>
-                  {" "}
-                  Log In
-                </Link>
-              </Typography>
             </form>
+            <Typography variant="body1" className={classes.footer}>
+              Already have an account?
+              <Link to="/login" className={classes.link}>
+                {" "}
+                Log In
+              </Link>
+            </Typography>
           </Paper>
         </Container>
       </React.Fragment>
     );
   }
 }
-export default withStyles(styles)(Signup);
+const mapStateToProps = state => {
+  return {
+    error: state.error
+  };
+};
+
+export default connect(mapStateToProps, { registerUser })(
+  withStyles(styles)(Signup)
+);

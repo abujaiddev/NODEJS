@@ -1,34 +1,28 @@
-import React from "react";
+import React, { Component } from "react";
 import { connect } from "react-redux";
-import { books } from "../store/actions/bookAction";
+import { withRouter } from "react-router-dom";
 
-class Home extends React.Component {
+class Home extends Component {
   componentDidMount() {
-    this.props.books();
+    const { history } = this.props;
+
+    if (!localStorage.getItem("token")) {
+      history.push("/login");
+    }
   }
   render() {
-    // const { books } = this.props.books;
-    console.log("++++++++++++++", this.props);
+    console.log(this.props);
     return (
-      <div className="container mt-5">
-        <div className="row">
-          <div className="col-sm-4 mb-3">
-            <div className="card">
-              <div className="card-body">
-                <p className="card-title">book title</p>
-                <p className="card-text">description</p>
-                <p className="text-primary font-italic">-Author</p>
-              </div>
-            </div>
-          </div>
-        </div>
+      <div>
+        <h3>Home Page</h3>
       </div>
     );
   }
 }
+
 const mapStateToProps = state => {
   return {
-    books: state.book
+    auth: state.auth
   };
 };
-export default connect(mapStateToProps, { books })(Home);
+export default withRouter(connect(mapStateToProps)(Home));

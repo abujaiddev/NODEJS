@@ -6,7 +6,7 @@ const authController = require("../../controller/authController");
 const auth = require("../../middleware/auth");
 
 // users
-router.post("/users/register", userController.register);
+router.post("/registerUser", userController.registerUser);
 router.post("/auth", authController.auth);
 
 // posts

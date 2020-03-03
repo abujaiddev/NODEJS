@@ -1,7 +1,17 @@
 import axios from "axios";
 import jwt_decode from "jwt-decode";
 import setAuthToken from "../../util/setAuthToken";
-import { USER_LOGIN, GET_ERRORS, SET_CURRENT_USER } from "./actionTypes";
+import { GET_ERRORS, SET_CURRENT_USER } from "./actionTypes";
+
+export const registerUser = (user, history) => dispatch => {
+  axios
+    .post(`/api/registerUser`, user)
+    .then(result => {
+      console.log(result);
+      history.push("/login");
+    })
+    .catch(err => console.log(err));
+};
 
 export const userLogin = (userData, history) => dispatch => {
   axios
@@ -31,4 +41,5 @@ export const logout = () => dispatch => {
   localStorage.removeItem("token");
   setAuthToken(false);
   dispatch(setCurrentUser({}));
+  window.location.href = "/login";
 };
