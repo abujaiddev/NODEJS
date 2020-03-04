@@ -23,3 +23,12 @@ exports.registerUser = async (req, res) => {
     });
   }
 };
+
+exports.profile = async (req, res) => {
+  try {
+    const profile = await User.findOne({ _id: req.user.id });
+    res.json(profile);
+  } catch (err) {
+    res.status(500).json({ msg: "server error" });
+  }
+};

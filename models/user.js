@@ -13,6 +13,18 @@ const userSchema = new Schema({
     type: String,
     required: true
   },
+  work: {
+    type: String,
+    default: null
+  },
+  phone: {
+    type: Number,
+    default: null
+  },
+  education: {
+    type: String,
+    default: null
+  },
   avatarColor: {
     type: String
   },

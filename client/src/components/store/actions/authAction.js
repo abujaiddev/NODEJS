@@ -22,7 +22,7 @@ export const userLogin = (userData, history) => dispatch => {
       setAuthToken(decoded);
       localStorage.setItem("token", token);
       dispatch(setCurrentUser(decoded));
-      history.push("/dashboard/UserDashboard");
+      history.push("dashboard/user");
     })
     .catch(error => {
       dispatch({ type: GET_ERRORS, payload: error.response.data.msg });
