@@ -80,7 +80,6 @@ const useStyles = makeStyles(theme => ({
 }));
 
 function Header(props) {
-  console.log(props.auth.isAuthenticated);
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = useState(null);

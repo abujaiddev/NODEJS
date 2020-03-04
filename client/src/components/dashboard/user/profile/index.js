@@ -5,7 +5,6 @@ import {
   withStyles,
   Container,
   CssBaseline,
-  Typography,
   Paper,
   Button,
   FormControl,
@@ -13,6 +12,8 @@ import {
   InputLabel,
   Avatar
 } from "@material-ui/core";
+import Sidebar from "../../../sidebar";
+import Grid from "@material-ui/core/Grid";
 
 const styles = theme => ({
   root: {
@@ -20,7 +21,7 @@ const styles = theme => ({
   },
   paper: {
     position: "absolute",
-    top: "50%",
+    top: "40%",
     left: "50%",
     transform: "translate(-50%, -50%)",
     padding: theme.spacing(4),
@@ -63,57 +64,61 @@ class Profile extends Component {
 
     return (
       <React.Fragment>
-        <CssBaseline />
-        <Container>
-          <Paper className={classes.paper}>
-            <form onSubmit={this.handleSubmit} noValidate>
-              <FormControl margin="normal" required fullWidth>
-                <InputLabel htmlFor="username">Username</InputLabel>
-                <Input
-                  type="text"
-                  onChange={this.handaleChange}
-                  id="email"
-                  name=""
-                />
-              </FormControl>
-              <FormControl margin="normal" required fullWidth>
-                <InputLabel htmlFor="password">Password</InputLabel>
-                <Input
-                  type="text"
-                  name=""
-                  onChange={this.handaleChange}
-                  autoFocus
-                />
-              </FormControl>
-              <FormControl margin="normal" required fullWidth>
-                <InputLabel htmlFor="password">Phone</InputLabel>
-                <Input
-                  type="text"
-                  name=""
-                  onChange={this.handaleChange}
-                  autoFocus
-                />
-              </FormControl>
-              <FormControl margin="normal" required fullWidth>
-                <InputLabel htmlFor="password">Bio</InputLabel>
-                <Input
-                  type="text"
-                  name=""
-                  onChange={this.handaleChange}
-                  autoFocus
-                />
-              </FormControl>
-              <Button
-                type="submit"
-                variant="contained"
-                color="primary"
-                fullWidth
-              >
-                Update Profile
-              </Button>
-            </form>
-          </Paper>
-        </Container>
+        <Grid>
+          <Grid item xs={3}>
+            <Sidebar />
+          </Grid>
+          <Grid item xs={9}>
+            <Paper className={classes.paper}>
+              <form onSubmit={this.handleSubmit} noValidate>
+                <FormControl margin="normal" required fullWidth>
+                  <InputLabel htmlFor="username">Username</InputLabel>
+                  <Input
+                    type="text"
+                    onChange={this.handaleChange}
+                    id="email"
+                    name=""
+                  />
+                </FormControl>
+                <FormControl margin="normal" required fullWidth>
+                  <InputLabel htmlFor="password">Password</InputLabel>
+                  <Input
+                    type="text"
+                    name=""
+                    onChange={this.handaleChange}
+                    autoFocus
+                  />
+                </FormControl>
+                <FormControl margin="normal" required fullWidth>
+                  <InputLabel htmlFor="password">Phone</InputLabel>
+                  <Input
+                    type="text"
+                    name=""
+                    onChange={this.handaleChange}
+                    autoFocus
+                  />
+                </FormControl>
+                <FormControl margin="normal" required fullWidth>
+                  <InputLabel htmlFor="password">Bio</InputLabel>
+                  <Input
+                    type="text"
+                    name=""
+                    onChange={this.handaleChange}
+                    autoFocus
+                  />
+                </FormControl>
+                <Button
+                  type="submit"
+                  variant="contained"
+                  color="primary"
+                  fullWidth
+                >
+                  Update Profile
+                </Button>
+              </form>
+            </Paper>
+          </Grid>
+        </Grid>
       </React.Fragment>
     );
   }
