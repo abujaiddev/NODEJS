@@ -3,14 +3,11 @@ import { connect } from "react-redux";
 import { profileUser } from "../../../store/actions/profileAction";
 import {
   withStyles,
-  Container,
-  CssBaseline,
   Paper,
   Button,
   FormControl,
   Input,
-  InputLabel,
-  Avatar
+  InputLabel
 } from "@material-ui/core";
 import Sidebar from "../../../sidebar";
 import Grid from "@material-ui/core/Grid";
@@ -50,18 +47,26 @@ const styles = theme => ({
 class Profile extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      profile: []
+    };
   }
   handleSubmit = e => {
     e.preventDefault();
   };
   handaleChange = e => {};
   componentDidMount() {
-    // this.props.profile();
+    this.props.profileUser();
+  }
+  static getDerivedStateFromProps(props, state) {
+    return {
+      profile: props.profile.profile
+    };
   }
   render() {
     const { classes } = this.props;
-
+    console.log(this.state.profile);
+    const { work, username, phone } = this.state.profile;
     return (
       <React.Fragment>
         <Grid>
@@ -75,6 +80,7 @@ class Profile extends Component {
                   <InputLabel htmlFor="username">Username</InputLabel>
                   <Input
                     type="text"
+                    value={username}
                     onChange={this.handaleChange}
                     id="email"
                     name=""
