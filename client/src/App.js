@@ -1,5 +1,5 @@
 import React from "react";
-import Header from "./components/header/header";
+import Header from "./components/header";
 import setAuthToken from "./components/util/setAuthToken";
 import jwt_decode from "jwt-decode";
 import store from "./components/store/store";

@@ -6,16 +6,15 @@ import {
   NavbarBrand,
   Nav,
   NavItem,
-  NavLink,
   UncontrolledDropdown,
   DropdownToggle,
   DropdownMenu,
   DropdownItem,
-  NavbarText
+  NavbarText,
+  Input
 } from "reactstrap";
-import { MdFace } from "react-icons/md";
+import { MdFace, MdSearch } from "react-icons/md";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
 import { logout } from "../store/actions/authAction";
 
 class Header extends React.Component {
@@ -32,11 +31,13 @@ class Header extends React.Component {
     const authLinks = (
       <div>
         <Navbar color="primary" dark expand="md">
-          <NavbarBrand to="/">reactstrap</NavbarBrand>
+          <NavbarBrand to="/">Connect with me</NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.isOpen} navbar>
             <Nav className="mr-auto" navbar>
-              <NavItem></NavItem>
+              <NavItem>
+                <Input type="text" name="text" placeholder="Search.." />
+              </NavItem>
             </Nav>
             <NavbarText>
               <strong>
