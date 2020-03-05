@@ -9,6 +9,7 @@ const auth = require("../../middleware/auth");
 router.post("/registerUser", userController.registerUser);
 router.get("/profile", auth, userController.profile);
 router.post("/auth", authController.auth);
+router.put("/profile/me", auth, userController.profileMe);
 
 // posts
 router.post("/post", auth, postController.create);

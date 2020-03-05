@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { profileUser } from "../../../store/actions/profileAction";
+import {
+  profileUser,
+  profileUpdate
+} from "../../../store/actions/profileAction";
 import LeftSidebar from "../../../sidebar/leftSidebar";
 import {
   Container,
@@ -17,30 +20,24 @@ import RightSidebar from "../../../sidebar/rightSidebar";
 class Profile extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      username: this.props.profile.profile.username,
-      phone: this.props.profile.profile.phone
-    };
   }
   handleSubmit = e => {
     e.preventDefault();
+    const data = {
+      username: e.target.username.value,
+      phone: e.target.phone.value
+    };
+    this.props.profileUpdate(data);
+    this.props.history.push("/dashboard/user");
   };
-  handaleChange = e => {
-    this.setState({ [e.target.name]: e.target.value });
-  };
+  // handaleChange = e => {
+  //   this.setState({ [e.target.name]: e.target.value });
+  // };
   componentDidMount() {
     this.props.profileUser();
   }
 
-  // static getDerivedStateFromProps(props, state) {
-  //   return {
-  //     username: props
-  //   };
-  // }
-
   render() {
-    console.log(this.state);
-
     return (
       <React.Fragment>
         <Container fluid>
@@ -49,14 +46,14 @@ class Profile extends Component {
               <LeftSidebar />
             </Col>
             <Col sm="6">
-              <Form>
+              <Form onSubmit={this.handleSubmit}>
                 <FormGroup>
-                  <Label for="exampleEmail">Username</Label>
+                  <Label for="username">Username</Label>
                   <Input
                     type="text"
                     name="username"
-                    value={this.state.username}
-                    onChange={this.handaleChange}
+                    defaultValue={this.props.profile.profile.username}
+                    // onChange={this.handaleChange}
                   />
                 </FormGroup>
                 <FormGroup>
@@ -64,8 +61,8 @@ class Profile extends Component {
                   <Input
                     type="text"
                     name="phone"
-                    value={this.state.phone}
-                    onChange={this.handaleChange}
+                    defaultValue={this.props.profile.profile.phone}
+                    // onChange={this.handaleChange}
                   />
                 </FormGroup>
 
@@ -74,7 +71,7 @@ class Profile extends Component {
                   <Input type="textarea" name="text" id="exampleText" />
                 </FormGroup>
 
-                <Button>Submit</Button>
+                <Button type="submit">Submit</Button>
               </Form>
             </Col>
             <Col sm="3">
@@ -93,4 +90,6 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, { profileUser })(Profile);
+export default connect(mapStateToProps, { profileUser, profileUpdate })(
+  Profile
+);

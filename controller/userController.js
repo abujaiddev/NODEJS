@@ -32,3 +32,13 @@ exports.profile = async (req, res) => {
     res.status(500).json({ msg: "server error" });
   }
 };
+
+exports.profileMe = async (req, res) => {
+  try {
+    const profile = await User.updateOne({ _id: req.user.id }, { ...req.body });
+
+    res.json({ msg: "profile update", profile });
+  } catch (err) {
+    res.status(500).json({ msg: "server error" });
+  }
+};

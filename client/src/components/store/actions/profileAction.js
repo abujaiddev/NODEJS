@@ -11,3 +11,10 @@ export const profileUser = () => dispatch => {
       console.log(err);
     });
 };
+
+export const profileUpdate = data => dispatch => {
+  console.log(data);
+  axios.put(`/api/profile/me`, data).then(result => {
+    // console.log(result);
+  });
+};
