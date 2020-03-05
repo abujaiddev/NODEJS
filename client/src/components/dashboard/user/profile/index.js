@@ -1,49 +1,20 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { profileUser } from "../../../store/actions/profileAction";
+import LeftSidebar from "../../../sidebar/leftSidebar";
 import {
-  withStyles,
-  Paper,
+  Container,
+  Form,
+  Col,
+  Row,
   Button,
-  FormControl,
+  FormGroup,
+  Label,
   Input,
-  InputLabel
-} from "@material-ui/core";
-import Sidebar from "../../../sidebar";
-import Grid from "@material-ui/core/Grid";
+  FormText
+} from "reactstrap";
+import RightSidebar from "../../../sidebar/rightSidebar";
 
-const styles = theme => ({
-  root: {
-    backgroundColor: "red"
-  },
-  paper: {
-    position: "absolute",
-    top: "40%",
-    left: "50%",
-    transform: "translate(-50%, -50%)",
-    padding: theme.spacing(4),
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    backgroundColor: "theme.palette.background.paper",
-    boxShadow: theme.shadows[5]
-  },
-  footer: {
-    marginTop: theme.spacing(2),
-    textAlign: "center"
-  },
-  link: {
-    textDecoration: "none",
-    color: "#3f51b5",
-    "&:hover": {
-      textDecoration: "none"
-    }
-  },
-  avatar: {
-    backgroundColor: "#f50057",
-    marginTop: theme.spacing(2)
-  }
-});
 class Profile extends Component {
   constructor(props) {
     super(props);
@@ -64,67 +35,43 @@ class Profile extends Component {
     };
   }
   render() {
-    const { classes } = this.props;
     console.log(this.state.profile);
     const { work, username, phone } = this.state.profile;
     return (
       <React.Fragment>
-        <Grid>
-          <Grid item xs={3}>
-            <Sidebar />
-          </Grid>
-          <Grid item xs={9}>
-            <Paper className={classes.paper}>
-              <form onSubmit={this.handleSubmit} noValidate>
-                <FormControl margin="normal" required fullWidth>
-                  <InputLabel htmlFor="username">Username</InputLabel>
+        <Container fluid>
+          <Row>
+            <Col sm="3">
+              <LeftSidebar />
+            </Col>
+            <Col sm="6">
+              <Form>
+                <FormGroup>
+                  <Label for="exampleEmail">Username</Label>
                   <Input
                     type="text"
-                    value={username}
-                    onChange={this.handaleChange}
-                    id="email"
-                    name=""
+                    name="username"
+                    placeholder="with a placeholder"
                   />
-                </FormControl>
-                <FormControl margin="normal" required fullWidth>
-                  <InputLabel htmlFor="password">Password</InputLabel>
-                  <Input
-                    type="text"
-                    name=""
-                    onChange={this.handaleChange}
-                    autoFocus
-                  />
-                </FormControl>
-                <FormControl margin="normal" required fullWidth>
-                  <InputLabel htmlFor="password">Phone</InputLabel>
-                  <Input
-                    type="text"
-                    name=""
-                    onChange={this.handaleChange}
-                    autoFocus
-                  />
-                </FormControl>
-                <FormControl margin="normal" required fullWidth>
-                  <InputLabel htmlFor="password">Bio</InputLabel>
-                  <Input
-                    type="text"
-                    name=""
-                    onChange={this.handaleChange}
-                    autoFocus
-                  />
-                </FormControl>
-                <Button
-                  type="submit"
-                  variant="contained"
-                  color="primary"
-                  fullWidth
-                >
-                  Update Profile
-                </Button>
-              </form>
-            </Paper>
-          </Grid>
-        </Grid>
+                </FormGroup>
+                <FormGroup>
+                  <Label for="phone">Phone</Label>
+                  <Input type="text" name="phone" />
+                </FormGroup>
+
+                <FormGroup>
+                  <Label for="exampleText">About yourself</Label>
+                  <Input type="textarea" name="text" id="exampleText" />
+                </FormGroup>
+
+                <Button>Submit</Button>
+              </Form>
+            </Col>
+            <Col sm="3">
+              <RightSidebar />
+            </Col>
+          </Row>
+        </Container>
       </React.Fragment>
     );
   }
@@ -136,6 +83,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, { profileUser })(
-  withStyles(styles)(Profile)
-);
+export default connect(mapStateToProps, { profileUser })(Profile);

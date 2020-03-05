@@ -20,7 +20,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function Sidebar() {
+export default function LeftSidebar() {
   const classes = useStyles();
   const [open, setOpen] = React.useState(true);
 
@@ -30,7 +30,12 @@ export default function Sidebar() {
       aria-labelledby="nested-list-subheader"
       subheader={
         <ListSubheader component="div" id="nested-list-subheader">
-          Explore
+          <img
+            src="http://aspire.infogain.com/AspireSSO/ImageHandler.ashx?n=109908.jpg"
+            alt=""
+            className="profile-img"
+          />{" "}
+          <strong>Abou Jaid ...</strong>
         </ListSubheader>
       }
       className={classes.root}

@@ -16,6 +16,7 @@ import {
 import { MdFace, MdSearch } from "react-icons/md";
 import { connect } from "react-redux";
 import { logout } from "../store/actions/authAction";
+import { Link } from "react-router-dom";
 
 class Header extends React.Component {
   constructor(props) {
@@ -52,7 +53,9 @@ class Header extends React.Component {
                   <MdFace style={{ color: "#dc3545", fontSize: "20px" }} />
                 </DropdownToggle>
                 <DropdownMenu right>
-                  <DropdownItem>Profile</DropdownItem>
+                  <DropdownItem tag={Link} to="/user/profile">
+                    Profile
+                  </DropdownItem>
                   <DropdownItem onClick={this.logout}>Logout</DropdownItem>
                 </DropdownMenu>
               </UncontrolledDropdown>

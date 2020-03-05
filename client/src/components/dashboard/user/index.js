@@ -1,23 +1,21 @@
 import React, { Component } from "react";
-import { fluid, Container, Row, Col } from "reactstrap";
-import Sidebar from "../../sidebar";
+import { Container, Row, Col } from "reactstrap";
+import LeftSidebar from "../../sidebar/leftSidebar";
+import RightSidebar from "../../sidebar/rightSidebar";
 
 export default class Dashboard extends Component {
   render() {
     return (
-      <Container>
+      <Container fluid>
         <Row>
           <Col sm="3">
-            <Sidebar />
+            <LeftSidebar />
           </Col>
           <Col sm="6" style={{ backgroundColor: "green" }}>
             .col-auto - variable width content
           </Col>
           <Col sm="3">
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laborum
-            doloremque vitae sequi quos necessitatibus, fugit nesciunt unde
-            numquam temporibus explicabo modi neque quisquam repudiandae ad,
-            odit possimus odio? Consectetur, libero.
+            <RightSidebar />
           </Col>
         </Row>
       </Container>
