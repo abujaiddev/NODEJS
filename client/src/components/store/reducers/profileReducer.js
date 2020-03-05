@@ -1,7 +1,7 @@
 import { GET_PROFILE } from "../actions/actionTypes";
 
 const initialState = {
-  profile: []
+  profile: {}
 };
 export default function profileReducer(state = initialState, action) {
   switch (action.type) {

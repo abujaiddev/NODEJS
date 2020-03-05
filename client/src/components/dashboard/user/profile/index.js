@@ -10,8 +10,7 @@ import {
   Button,
   FormGroup,
   Label,
-  Input,
-  FormText
+  Input
 } from "reactstrap";
 import RightSidebar from "../../../sidebar/rightSidebar";
 
@@ -19,24 +18,29 @@ class Profile extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      profile: []
+      username: this.props.profile.profile.username,
+      phone: this.props.profile.profile.phone
     };
   }
   handleSubmit = e => {
     e.preventDefault();
   };
-  handaleChange = e => {};
+  handaleChange = e => {
+    this.setState({ [e.target.name]: e.target.value });
+  };
   componentDidMount() {
     this.props.profileUser();
   }
-  static getDerivedStateFromProps(props, state) {
-    return {
-      profile: props.profile.profile
-    };
-  }
+
+  // static getDerivedStateFromProps(props, state) {
+  //   return {
+  //     username: props
+  //   };
+  // }
+
   render() {
-    console.log(this.state.profile);
-    const { work, username, phone } = this.state.profile;
+    console.log(this.state);
+
     return (
       <React.Fragment>
         <Container fluid>
@@ -51,12 +55,18 @@ class Profile extends Component {
                   <Input
                     type="text"
                     name="username"
-                    placeholder="with a placeholder"
+                    value={this.state.username}
+                    onChange={this.handaleChange}
                   />
                 </FormGroup>
                 <FormGroup>
                   <Label for="phone">Phone</Label>
-                  <Input type="text" name="phone" />
+                  <Input
+                    type="text"
+                    name="phone"
+                    value={this.state.phone}
+                    onChange={this.handaleChange}
+                  />
                 </FormGroup>
 
                 <FormGroup>

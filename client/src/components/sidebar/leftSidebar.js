@@ -31,11 +31,11 @@ export default function LeftSidebar() {
       subheader={
         <ListSubheader component="div" id="nested-list-subheader">
           <img
-            src="http://aspire.infogain.com/AspireSSO/ImageHandler.ashx?n=109908.jpg"
+            src="https://media-exp1.licdn.com/dms/image/C4E03AQHEdDsCgvNfzg/profile-displayphoto-shrink_200_200/0?e=1588809600&v=beta&t=LDE5sA0e0k3VmEiKQpBqcwO8OO-wBoBxn5DDjkzSmwA"
             alt=""
             className="profile-img"
           />{" "}
-          <strong>Abou Jaid ...</strong>
+          <strong>Abu Jaid ...</strong>
         </ListSubheader>
       }
       className={classes.root}
