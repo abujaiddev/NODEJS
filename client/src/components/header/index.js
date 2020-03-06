@@ -13,7 +13,7 @@ import {
   NavbarText,
   Input
 } from "reactstrap";
-import { MdFace, MdSearch } from "react-icons/md";
+import { MdFace, MdNetworkCell } from "react-icons/md";
 import { connect } from "react-redux";
 import { logout } from "../store/actions/authAction";
 import { Link } from "react-router-dom";
@@ -33,6 +33,7 @@ class Header extends React.Component {
       <Fragment>
         <Navbar color="primary" dark expand="md">
           <NavbarBrand tag={Link} to="/dashboard/user">
+            <MdNetworkCell style={{ color: "#dc3545", fontSize: "20px" }} />{" "}
             Connect with me
           </NavbarBrand>
           <NavbarToggler onClick={this.toggle} />

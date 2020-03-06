@@ -25,7 +25,8 @@ class Profile extends Component {
     e.preventDefault();
     const data = {
       username: e.target.username.value,
-      phone: e.target.phone.value
+      phone: e.target.phone.value,
+      bio: e.target.bio.value
     };
     this.props.profileUpdate(data);
     this.props.history.push("/dashboard/user");
@@ -68,7 +69,12 @@ class Profile extends Component {
 
                 <FormGroup>
                   <Label for="exampleText">About yourself</Label>
-                  <Input type="textarea" name="text" id="exampleText" />
+                  <Input
+                    type="textarea"
+                    name="bio"
+                    defaultValue={this.props.profile.profile.bio}
+                    placeholder="About yourself"
+                  />
                 </FormGroup>
 
                 <Button type="submit">Submit</Button>
