@@ -26,7 +26,9 @@ class Profile extends Component {
     const data = {
       username: e.target.username.value,
       phone: e.target.phone.value,
-      bio: e.target.bio.value
+      bio: e.target.bio.value,
+      work: e.target.work.value,
+      education: e.target.education.value
     };
     this.props.profileUpdate(data);
     this.props.history.push("/dashboard/user");
@@ -74,6 +76,24 @@ class Profile extends Component {
                     name="bio"
                     defaultValue={this.props.profile.profile.bio}
                     placeholder="About yourself"
+                  />
+                </FormGroup>
+                <FormGroup>
+                  <Label for="exampleText">Work</Label>
+                  <Input
+                    type="textarea"
+                    name="work"
+                    defaultValue={this.props.profile.profile.work}
+                    placeholder="Work"
+                  />
+                </FormGroup>
+                <FormGroup>
+                  <Label for="exampleText">Education</Label>
+                  <Input
+                    type="textarea"
+                    name="education"
+                    defaultValue={this.props.profile.profile.education}
+                    placeholder="Education"
                   />
                 </FormGroup>
 
