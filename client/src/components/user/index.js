@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Container, Row, Col } from "reactstrap";
-import LeftSidebar from "../../sidebar/leftSidebar";
-import RightSidebar from "../../sidebar/rightSidebar";
+import LeftSidebar from "../sidebar/leftSidebar";
+import RightSidebar from "../sidebar/rightSidebar";
 import { Card, CardBody, CardText } from "reactstrap";
 
 export default class Dashboard extends Component {

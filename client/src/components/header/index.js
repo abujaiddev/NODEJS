@@ -15,9 +15,10 @@ import {
   NavLink
 } from "reactstrap";
 import {
-  MdNotificationsNone,
-  MdHelpOutline,
-  MdNetworkCell
+  MdNotifications,
+  MdHelp,
+  MdNetworkCell,
+  MdPeople
 } from "react-icons/md";
 import { connect } from "react-redux";
 import { logout } from "../store/actions/authAction";
@@ -37,7 +38,7 @@ class Header extends React.Component {
     const authLinks = (
       <Fragment>
         <Navbar color="primary" dark expand="md">
-          <NavbarBrand tag={Link} to="/dashboard/user">
+          <NavbarBrand tag={Link} to="/">
             <MdNetworkCell style={{ color: "#dc3545", fontSize: "20px" }} />{" "}
             Connect with me
           </NavbarBrand>
@@ -50,12 +51,15 @@ class Header extends React.Component {
             </Nav>
             <Nav className="mr-auto" navbar>
               <NavItem>
-                <NavLink tag={Link} to="#">
+                <NavLink
+                  tag={Link}
+                  to={`/${isAuthenticated ? isAuthenticated.user.name : ""}`}
+                >
                   {isAuthenticated ? isAuthenticated.user.name : ""}
                 </NavLink>
               </NavItem>
               <NavItem>
-                <NavLink tag={Link} to="#">
+                <NavLink tag={Link} to="/">
                   Home
                 </NavLink>
               </NavItem>
@@ -64,16 +68,10 @@ class Header extends React.Component {
                   Create
                 </NavLink>
               </NavItem>
-              <NavItem>
-                <NavLink tag={Link} to="#">
-                  <MdNotificationsNone className="icon" />
-                </NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink tag={Link} to="#">
-                  <MdHelpOutline className="icon" />
-                </NavLink>
-              </NavItem>
+              <MdPeople className="icon" />
+              <MdNotifications className="icon" />
+              <MdHelp className="icon" />
+
               <NavItem>
                 <UncontrolledDropdown nav inNavbar>
                   <DropdownToggle nav caret></DropdownToggle>
