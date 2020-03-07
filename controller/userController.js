@@ -24,6 +24,16 @@ exports.registerUser = async (req, res) => {
   }
 };
 
+// users
+exports.users = async (req, res) => {
+  try {
+    const users = await User.find({});
+    res.json(users);
+  } catch (err) {
+    res.status(500).json({ msg: "server error" });
+  }
+};
+
 exports.profile = async (req, res) => {
   try {
     const profile = await User.findOne({ _id: req.user.id });

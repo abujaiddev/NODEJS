@@ -6,6 +6,4 @@ export const CLEAR_ERRORS = "CLEAR_ERRORS";
 
 // profile
 export const GET_PROFILE = "GET_PROFILE";
-
-// books
-export const GET_BOOKS = "GET_BOOKS";
+export const UPDATE_PROFILE = "UPDATE_PROFILE";

@@ -7,7 +7,7 @@ export default class RightSidebar extends Component {
       <Fragment>
         <Card>
           <CardBody>
-            <CardHeader>Your Page</CardHeader>
+            <CardHeader>Your Pages</CardHeader>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam
             repudiandae aliquam alias distinctio optio ratione, quod tempora
             excepturi magnam autem quia reprehenderit error harum modi, quae id
@@ -17,7 +17,7 @@ export default class RightSidebar extends Component {
         <br />
         <Card>
           <CardBody>
-            <CardHeader>Your Page</CardHeader>
+            <CardHeader>Contacts</CardHeader>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam
             repudiandae aliquam alias distinctio optio ratione, quod tempora
             excepturi magnam autem quia reprehenderit error harum modi, quae id

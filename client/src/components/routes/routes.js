@@ -7,6 +7,8 @@ import Dashboard from "../dashboard/user/index";
 import UserRoute from "./UserRoute";
 import Signup from "../auth/signup";
 import Profile from "../dashboard/user/profile";
+import usersList from "../users/usersList";
+import Settings from "../settings";
 
 export default function routes() {
   return (
@@ -16,6 +18,8 @@ export default function routes() {
       <Route path="/signup" component={Signup} />
       <UserRoute path="/dashboard/user" component={Dashboard} />
       <UserRoute path="/user/profile" component={Profile} />
+      <UserRoute path="/users" component={usersList} />
+      <UserRoute path="/settings" component={Settings} />
     </Switch>
   );
 }

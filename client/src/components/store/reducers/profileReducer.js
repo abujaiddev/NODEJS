@@ -1,7 +1,7 @@
-import { GET_PROFILE } from "../actions/actionTypes";
+import { GET_PROFILE, UPDATE_PROFILE } from "../actions/actionTypes";
 
 const initialState = {
-  profile: {}
+  profile: []
 };
 export default function profileReducer(state = initialState, action) {
   switch (action.type) {
@@ -10,6 +10,15 @@ export default function profileReducer(state = initialState, action) {
         ...state,
         profile: action.payload
       };
+    case UPDATE_PROFILE: {
+      return {
+        ...state,
+        profile: action.payload
+        // profile: state.profile.map(x =>
+        //   x._id == action.payload._id ? action.payload : x
+        // )
+      };
+    }
     default:
       return state;
   }

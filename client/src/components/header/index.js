@@ -11,9 +11,14 @@ import {
   DropdownMenu,
   DropdownItem,
   NavbarText,
-  Input
+  Input,
+  NavLink
 } from "reactstrap";
-import { MdFace, MdNetworkCell } from "react-icons/md";
+import {
+  MdNotificationsNone,
+  MdHelpOutline,
+  MdNetworkCell
+} from "react-icons/md";
 import { connect } from "react-redux";
 import { logout } from "../store/actions/authAction";
 import { Link } from "react-router-dom";
@@ -43,25 +48,45 @@ class Header extends React.Component {
                 <Input type="text" name="text" placeholder="Search.." />
               </NavItem>
             </Nav>
-            <NavbarText>
-              <strong>
-                Welcome {isAuthenticated ? isAuthenticated.user.name : ""}
-              </strong>
-            </NavbarText>
+            <Nav className="mr-auto" navbar>
+              <NavItem>
+                <NavLink tag={Link} to="#">
+                  {isAuthenticated ? isAuthenticated.user.name : ""}
+                </NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink tag={Link} to="#">
+                  Home
+                </NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink tag={Link} to="#">
+                  Create
+                </NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink tag={Link} to="#">
+                  <MdNotificationsNone className="icon" />
+                </NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink tag={Link} to="#">
+                  <MdHelpOutline className="icon" />
+                </NavLink>
+              </NavItem>
+              <NavItem>
+                <UncontrolledDropdown nav inNavbar>
+                  <DropdownToggle nav caret></DropdownToggle>
+                  <DropdownMenu right>
+                    <DropdownItem tag={Link} to="/settings">
+                      Settings
+                    </DropdownItem>
+                    <DropdownItem onClick={this.logout}>Log Out</DropdownItem>
+                  </DropdownMenu>
+                </UncontrolledDropdown>
+              </NavItem>
+            </Nav>
           </Collapse>
-          <Nav className="mr-auto" navbar>
-            <UncontrolledDropdown nav inNavbar>
-              <DropdownToggle nav caret>
-                <MdFace style={{ color: "#dc3545", fontSize: "20px" }} />
-              </DropdownToggle>
-              <DropdownMenu right>
-                <DropdownItem tag={Link} to="/user/profile">
-                  Profile
-                </DropdownItem>
-                <DropdownItem onClick={this.logout}>Logout</DropdownItem>
-              </DropdownMenu>
-            </UncontrolledDropdown>
-          </Nav>
         </Navbar>
       </Fragment>
     );
