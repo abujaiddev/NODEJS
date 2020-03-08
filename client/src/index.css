@@ -1,3 +1,6 @@
+body {
+  background-color: #e9ecef54 !important;
+}
 img.profile-img {
   border-radius: 50%;
   width: 50px;
@@ -13,6 +16,56 @@ img.profile-img {
 .edit-profile a {
   padding-left: 60px;
   font-weight: 900;
+}
+.user-profile {
+  margin-top: -170px;
+  margin-left: 11px;
+  border-radius: 6.25rem !important;
+  border: 4px solid white;
+  width: 200px;
+  position: relative;
+  left: 0;
+  right: 0;
+  z-index: 99;
+}
+.timeline-name {
+  position: relative;
+  top: -62px;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+}
+.cover-name {
+  position: relative;
+  top: -89px;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: right;
+  color: white !important;
+}
+a.cover-link {
+  border: 1px solid white;
+  background: white;
+  padding: 4px;
+  font-size: 15px;
+  color: #000000b3;
+  margin-right: 30px;
+  border-radius: 2px;
+}
+.h45 {
+  height: 45px;
+  background: white;
+  position: relative;
+  bottom: 64px;
+}
+ul.timeline-menu > li {
+  display: inline;
+  font-size: 20px;
+  margin-left: 10px;
+  list-style: none;
+  padding: 15px;
+  position: relative;
+  left: 220px;
 }
 .icon {
   font-size: 24px;
