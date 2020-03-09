@@ -1,6 +1,9 @@
 body {
   background-color: #e9ecef54 !important;
 }
+.error {
+  color: red;
+}
 img.profile-img {
   border-radius: 50%;
   width: 50px;

@@ -7,10 +7,12 @@ export const registerUser = (user, history) => dispatch => {
   axios
     .post(`/api/registerUser`, user)
     .then(result => {
-      console.log(result);
       history.push("/login");
     })
-    .catch(err => console.log(err));
+    .catch(err => {
+      // console.log(err.response.data);
+      dispatch({ type: GET_ERRORS, payload: err.response.data });
+    });
 };
 
 export const userLogin = (userData, history) => dispatch => {
@@ -25,8 +27,10 @@ export const userLogin = (userData, history) => dispatch => {
       history.push("dashboard/user");
     })
     .catch(error => {
-      dispatch({ type: GET_ERRORS, payload: error.response.data.msg });
-      console.log(error);
+      dispatch({
+        type: GET_ERRORS,
+        payload: error.response.data
+      });
     });
 };
 

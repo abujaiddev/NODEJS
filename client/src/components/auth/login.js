@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link, withRouter } from "react-router-dom";
 import { userLogin } from "../store/actions/authAction";
 import { connect } from "react-redux";
+
 import {
   withStyles,
   Container,
@@ -53,7 +54,8 @@ class Login extends Component {
     super(props);
     this.state = {
       email: "",
-      password: ""
+      password: "",
+      errors: {}
     };
   }
   handaleChange = e => {
@@ -66,10 +68,15 @@ class Login extends Component {
 
     this.props.userLogin(data, this.props.history);
   };
-
+  static getDerivedStateFromProps(props, state) {
+    return {
+      errors: props.errors
+    };
+  }
   render() {
     const { classes } = this.props;
     const { email, password } = this.state;
+    const { errors } = this.state;
     return (
       <React.Fragment>
         <CssBaseline />
@@ -86,7 +93,9 @@ class Login extends Component {
                   id="email"
                   name="email"
                   value={email}
+                  error={!!errors.msg}
                 />
+                <span className="error">{this.state.errors.email}</span>
               </FormControl>
               <FormControl margin="normal" required fullWidth>
                 <InputLabel htmlFor="password">Password</InputLabel>
@@ -98,6 +107,7 @@ class Login extends Component {
                   autoFocus
                 />
               </FormControl>
+              <span className="error">{this.state.errors.password}</span>
               <Button
                 type="submit"
                 variant="contained"
@@ -123,7 +133,8 @@ class Login extends Component {
 
 const mapStateToProps = state => {
   return {
-    auth: state.auth
+    auth: state.auth,
+    errors: state.error
   };
 };
 export default connect(mapStateToProps, { userLogin })(

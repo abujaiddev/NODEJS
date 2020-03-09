@@ -54,7 +54,8 @@ class Signup extends Component {
     this.state = {
       username: "",
       email: "",
-      password: ""
+      password: "",
+      errors: {}
     };
   }
   handaleChange = e => {
@@ -62,8 +63,6 @@ class Signup extends Component {
   };
   handaleSubmit = e => {
     e.preventDefault();
-    alert("hello");
-
     const { username, email, password } = this.state;
     const user = {
       username,
@@ -73,9 +72,15 @@ class Signup extends Component {
 
     this.props.registerUser(user, this.props.history);
   };
+  static getDerivedStateFromProps(props, state) {
+    return {
+      errors: props.errors
+    };
+  }
   render() {
     const { classes } = this.props;
     const { username, email, password } = this.state;
+
     return (
       <React.Fragment>
         <CssBaseline />
@@ -85,27 +90,27 @@ class Signup extends Component {
             <Typography variant="h6">Sign Up</Typography>
             <form onSubmit={this.handaleSubmit} noValidate>
               <FormControl margin="normal" required fullWidth>
-                <InputLabel htmlFor="email">User Name</InputLabel>
+                <InputLabel htmlFor="username">User Name</InputLabel>
                 <Input
                   type="text"
-                  onChange={this.handleInputChange}
                   name="username"
                   value={username}
                   autoComplete="username"
                   onChange={this.handaleChange}
                 />
               </FormControl>
+              <span className="error">{this.state.errors.username}</span>
               <FormControl margin="normal" required fullWidth>
                 <InputLabel htmlFor="email">Email Address</InputLabel>
                 <Input
                   type="email"
-                  onChange={this.handleInputChange}
                   name="email"
                   value={email}
                   autoComplete="email"
                   onChange={this.handaleChange}
                 />
               </FormControl>
+              <span className="error">{this.state.errors.email}</span>
               <FormControl margin="normal" required fullWidth>
                 <InputLabel htmlFor="password">Password</InputLabel>
                 <Input
@@ -115,6 +120,7 @@ class Signup extends Component {
                   onChange={this.handaleChange}
                 />
               </FormControl>
+              <span className="error">{this.state.errors.password}</span>
               <Button
                 type="submit"
                 variant="contained"
@@ -139,7 +145,7 @@ class Signup extends Component {
 }
 const mapStateToProps = state => {
   return {
-    error: state.error
+    errors: state.error
   };
 };
 

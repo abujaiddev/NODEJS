@@ -1,7 +1,12 @@
 const User = require("../models/user");
 const bcrypt = require("bcryptjs");
+const validateRegisterInput = require("../validation/register");
 
 exports.registerUser = async (req, res) => {
+  const { errors, isValid } = validateRegisterInput(req.body);
+  if (!isValid) {
+    return res.status(400).json(errors);
+  }
   try {
     const { email, password } = req.body;
     const user = await User.findOne({ email: email });
