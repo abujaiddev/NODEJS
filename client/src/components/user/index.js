@@ -7,28 +7,28 @@ import { Card, CardBody, CardText } from "reactstrap";
 export default class Dashboard extends Component {
   render() {
     return (
-      <Container fluid>
-        <Row>
+      <div className="container">
+        <div className="row">
           <Col sm="3">
             <LeftSidebar />
           </Col>
-          <Col sm="6" s>
-            <Card>
-              <CardBody>
-                <CardText>
-                  Lorem, ipsum dolor sit amet consectetur adipisicing elit. At
-                  veniam inventore incidunt vero soluta odit nesciunt placeat
-                  esse nam dolorum, consequuntur numquam, quia consequatur.
-                  Similique voluptates earum eaque dolorum commodi.
-                </CardText>
-              </CardBody>
-            </Card>
-          </Col>
+          <div className="col-sm-6">
+            <div className="card">
+              <div className="card-body">
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque
+                  quod itaque veniam quia cumque. Accusantium similique ducimus,
+                  tempore officiis repellendus odit eaque recusandae minima
+                  culpa ipsa neque? Iure, vel excepturi?
+                </p>
+              </div>
+            </div>
+          </div>
           <Col sm="3">
             <RightSidebar />
           </Col>
-        </Row>
-      </Container>
+        </div>
+      </div>
     );
   }
 }
