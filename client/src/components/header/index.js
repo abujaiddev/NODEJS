@@ -23,6 +23,7 @@ import {
 import { connect } from "react-redux";
 import { logout } from "../store/actions/authAction";
 import { Link } from "react-router-dom";
+import facebook from "../../images/facebook-lite.png";
 
 class Header extends React.Component {
   constructor(props) {
@@ -37,16 +38,20 @@ class Header extends React.Component {
     const { isAuthenticated } = this.props.auth;
     const authLinks = (
       <Fragment>
-        <Navbar color="primary" dark expand="md">
+        <Navbar className="bg-fb" dark expand="md">
           <NavbarBrand tag={Link} to="/">
-            <MdNetworkCell style={{ color: "#dc3545", fontSize: "20px" }} />{" "}
-            Connect with me
+            <img src={facebook} className="logo" />
           </NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.isOpen} navbar>
             <Nav className="mr-auto" navbar>
               <NavItem>
-                <Input type="text" name="text" placeholder="Search.." />
+                <Input
+                  type="text"
+                  name="text"
+                  placeholder="Search Facebook"
+                  className="in-search"
+                />
               </NavItem>
             </Nav>
             <Nav className="mr-auto" navbar>
