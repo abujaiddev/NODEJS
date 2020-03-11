@@ -1,0 +1,24 @@
+img.friends-img {
+  width: 100px;
+  border-radius: 50%;
+}
+.friend-title {
+  position: relative;
+  top: -30px;
+  padding-left: 20px;
+  color: #385898;
+  font-size: 15px;
+  font-weight: 700;
+  left: -5px;
+}
+
+.card-text:last-child {
+  margin-bottom: 0;
+  /* float: right; */
+  margin-top: -62px;
+  position: relative;
+  left: 113px;
+}
+.friends-short {
+  color: gray;
+}

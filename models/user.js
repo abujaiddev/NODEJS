@@ -13,6 +13,9 @@ const userSchema = new Schema({
     type: String,
     required: true
   },
+  location: {
+    type: String
+  },
   work: {
     type: String,
     default: null

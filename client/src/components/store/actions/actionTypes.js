@@ -7,3 +7,6 @@ export const CLEAR_ERRORS = "CLEAR_ERRORS";
 // profile
 export const GET_PROFILE = "GET_PROFILE";
 export const UPDATE_PROFILE = "UPDATE_PROFILE";
+
+// Users
+export const GET_USERS = "GET_USERS";
