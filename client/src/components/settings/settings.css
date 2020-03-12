@@ -1,0 +1,15 @@
+.mainContainer{
+ margin-right: auto;
+ margin-left: auto;
+ padding-left: 15px;
+ padding-right: 15px;
+}
+.col6 {
+    background: aqua;
+}
+.main-row{
+    display:flex
+}
+.col3{
+    background-color: bisque;
+}

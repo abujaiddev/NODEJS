@@ -31,9 +31,9 @@ class UserProfile extends React.Component {
   }
   render() {
     return (
-      <div className="container-fluid">
+      <div className="container">
         <div className="row">
-          <div className="col-sm-2"></div>
+          <div className="col-sm-2">lorem lorem lorem lorem</div>
           <div className="col-sm-8">
             <img
               src="https://scontent.fdel24-1.fna.fbcdn.net/v/t1.0-9/c0.181.960.355a/13938367_1107925602636648_9029723892961083323_n.jpg?_nc_cat=109&_nc_sid=dd9801&_nc_ohc=u7_ED2RX2YoAX8Z_Xqc&_nc_ht=scontent.fdel24-1.fna&oh=40859da8bc38f221a621eb030b855e24&oe=5E7FF050"

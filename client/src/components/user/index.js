@@ -7,7 +7,7 @@ import { Card, CardBody, CardText } from "reactstrap";
 export default class Dashboard extends Component {
   render() {
     return (
-      <div className="container">
+      <div className="container mt-3">
         <div className="row">
           <Col sm="3">
             <LeftSidebar />

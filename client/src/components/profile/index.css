@@ -2,10 +2,7 @@
   position: relative;
   left: 77px;
 }
-.bg-fb {
-  background-color: #385898;
-  border-color: #385898;
-}
+
 .in-search {
   width: 420px;
   height: 25px;
@@ -98,8 +95,7 @@ span.userimg {
   position: relative;
   top: -34px;
 }
-.userphoto-container {
-}
+
 .userPhoto {
   margin-top: -130px;
   margin-left: 11px;

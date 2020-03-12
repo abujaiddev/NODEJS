@@ -1,0 +1,30 @@
+
+  nav.navbar.navbar-expand-md.navbar-dark {
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 28px;
+    background-color: #4267b2;
+    border-color: #4267b2; 
+    height: 43px;
+    font-family: Helvetica, Arial, sans-serif;
+}
+.l{
+    margin-left: 200px;
+}
+.header-search{
+    background-color: #fff;
+    border: 1px solid #3b5998;
+    border-radius: 3px;
+    box-sizing: border-box;
+    height: 26px;
+   width: 350px;
+   margin-left: 15px; 
+}
+  .c-username{
+      text-transform: capitalize;
+  }
+  ._30w{
+      width: 30px;
+      border-radius: 50%;
+      margin-right: 7px;
+  }

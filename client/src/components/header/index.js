@@ -1,4 +1,5 @@
 import React, { Fragment } from "react";
+import './header.css'
 import {
   Collapse,
   Navbar,
@@ -24,6 +25,8 @@ import { connect } from "react-redux";
 import { logout } from "../store/actions/authAction";
 import { Link } from "react-router-dom";
 import facebook from "../../images/facebook-lite.png";
+import userPhoto from "../../images/profile.jpg";
+
 
 class Header extends React.Component {
   constructor(props) {
@@ -38,19 +41,17 @@ class Header extends React.Component {
     const { isAuthenticated } = this.props.auth;
     const authLinks = (
       <Fragment>
-        <Navbar className="bg-fb" dark expand="md">
-          <NavbarBrand tag={Link} to="/">
-            <img src={facebook} className="logo" />
-          </NavbarBrand>
+        <Navbar dark expand="md">
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.isOpen} navbar>
             <Nav className="mr-auto" navbar>
+              <span className="l"><img src={facebook} className="logo"/></span>
               <NavItem>
-                <Input
+                <input
                   type="text"
                   name="text"
                   placeholder="Search Facebook"
-                  className="in-search"
+                  className="header-search"
                 />
               </NavItem>
             </Nav>
@@ -60,7 +61,7 @@ class Header extends React.Component {
                   tag={Link}
                   to={`/${isAuthenticated ? isAuthenticated.user.name : ""}`}
                 >
-                  {isAuthenticated ? isAuthenticated.user.name : ""}
+                  <span className="c-username"><img src={userPhoto} className="_30w"/>{isAuthenticated ? isAuthenticated.user.name : ""}</span>
                 </NavLink>
               </NavItem>
               <NavItem>
@@ -69,7 +70,7 @@ class Header extends React.Component {
                 </NavLink>
               </NavItem>
               <NavItem>
-                <NavLink tag={Link} to="#">
+                <NavLink tag={Link} to="/dummy">
                   Create
                 </NavLink>
               </NavItem>
