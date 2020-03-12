@@ -10,3 +10,6 @@ export const UPDATE_PROFILE = "UPDATE_PROFILE";
 
 // Users
 export const GET_USERS = "GET_USERS";
+
+// Friends
+export const FRIEND_REQUEST = "FRIEND_REQUEST";

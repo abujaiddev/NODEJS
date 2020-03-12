@@ -3,10 +3,12 @@ import { authReducer } from "./authReducer";
 import { errorReducer } from "./errorReducer";
 import profileReducer from "./profileReducer";
 import usersReducer from "./usersReducer";
+import friendReducer from "./friendReducer";
 
 export default combineReducers({
   auth: authReducer,
   error: errorReducer,
   profile: profileReducer,
-  users: usersReducer
+  users: usersReducer,
+  friendRequest: friendReducer
 });

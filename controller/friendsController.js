@@ -18,7 +18,7 @@ exports.friendRequest = async (req, res) => {
 
 exports.friends = async (req, res) => {
   try {
-    const friends = await Friend.find({});
+    const friends = await Friend.find();
     res.json(friends);
   } catch (error) {
     res.status(500).json("server error");

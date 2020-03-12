@@ -98,3 +98,15 @@ span.userimg {
   position: relative;
   top: -34px;
 }
+.userphoto-container {
+}
+.userPhoto {
+  margin-top: -130px;
+  margin-left: 11px;
+  border: 4px solid white;
+  width: 200px;
+  position: relative;
+  left: 0;
+  right: 0;
+  z-index: 99;
+}

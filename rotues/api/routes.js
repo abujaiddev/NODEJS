@@ -2,9 +2,26 @@ const express = require("express");
 const router = express.Router();
 const postController = require("../../controller/postController");
 const userController = require("../../controller/userController");
+const profileController = require("../../controller/profileController");
 const authController = require("../../controller/authController");
 const auth = require("../../middleware/auth");
 const friendController = require("../../controller/friendsController");
+
+const multer = require("multer");
+
+const storage = multer.diskStorage({
+  destination: function(req, file, cb) {
+    cb(null, "./uploads");
+  },
+  filename: function(req, file, cb) {
+    // cb(null, Date.now() + "-" + file.originalname);
+    cb(null, file.originalname);
+  }
+});
+
+const upload = multer({
+  storage: storage
+});
 
 // users
 router.post("/registerUser", userController.registerUser);
@@ -12,6 +29,14 @@ router.get("/users", auth, userController.users);
 router.get("/profile", auth, userController.profile);
 router.post("/auth", authController.auth);
 router.put("/profile/me", auth, userController.profileMe);
+router.get("/user/profile", auth, profileController.getUserProfileImage);
+router.post("/user/profile", upload.any(), auth, profileController.profile);
+router.put(
+  "/user/profileUpdate",
+  upload.single("userPhoto"),
+  auth,
+  profileController.profileUpdate
+);
 
 // Friends
 router.post("/friendRequest/:id", auth, friendController.friendRequest);
