@@ -60,7 +60,7 @@ class Header extends React.Component {
                   tag={Link}
                   to={`/username/${
                     isAuthenticated ? isAuthenticated.user.name : ""
-                  }`}
+                    }`}
                 >
                   <span className="c-username">
                     <img src={userPhoto} className="_30w" />
@@ -83,8 +83,8 @@ class Header extends React.Component {
                   Create
                 </NavLink>
               </NavItem>
-              <MdPeople className="icon" />
-              <MdNotifications className="icon" />
+              <MdPeople className="icon" /><span className="notification">9</span>
+              <MdNotifications className="icon" /><span className="notification">5</span>
               <MdHelp className="icon" />
 
               <NavItem>
