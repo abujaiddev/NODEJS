@@ -41,6 +41,7 @@ router.put(
 // Friends
 router.post("/friendRequest/:id", auth, friendController.friendRequest);
 router.get("/friends", auth, friendController.friends);
+router.get("/friend/:id", auth, friendController.friend);
 
 // posts
 router.post("/post", auth, postController.create);

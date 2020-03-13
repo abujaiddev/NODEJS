@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import './header.css'
+import "./header.css";
 import {
   Collapse,
   Navbar,
@@ -15,18 +15,12 @@ import {
   Input,
   NavLink
 } from "reactstrap";
-import {
-  MdNotifications,
-  MdHelp,
-  MdNetworkCell,
-  MdPeople
-} from "react-icons/md";
+import { MdNotifications, MdHelp, MdSearch, MdPeople } from "react-icons/md";
 import { connect } from "react-redux";
 import { logout } from "../store/actions/authAction";
 import { Link } from "react-router-dom";
 import facebook from "../../images/facebook-lite.png";
 import userPhoto from "../../images/profile.jpg";
-
 
 class Header extends React.Component {
   constructor(props) {
@@ -45,28 +39,43 @@ class Header extends React.Component {
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.isOpen} navbar>
             <Nav className="mr-auto" navbar>
-              <span className="l"><img src={facebook} className="logo"/></span>
+              <span className="l">
+                <img src={facebook} className="logo" />
+              </span>
               <NavItem>
                 <input
                   type="text"
-                  name="text"
-                  placeholder="Search Facebook"
+                  name="search"
+                  placeholder="Search"
                   className="header-search"
                 />
+                <button className="btn-search">
+                  <MdSearch />
+                </button>
               </NavItem>
             </Nav>
             <Nav className="mr-auto" navbar>
               <NavItem>
                 <NavLink
                   tag={Link}
-                  to={`/${isAuthenticated ? isAuthenticated.user.name : ""}`}
+                  to={`/username/${
+                    isAuthenticated ? isAuthenticated.user.name : ""
+                  }`}
                 >
-                  <span className="c-username"><img src={userPhoto} className="_30w"/>{isAuthenticated ? isAuthenticated.user.name : ""}</span>
+                  <span className="c-username">
+                    <img src={userPhoto} className="_30w" />
+                    {isAuthenticated ? isAuthenticated.user.name : ""}
+                  </span>
                 </NavLink>
               </NavItem>
               <NavItem>
                 <NavLink tag={Link} to="/">
                   Home
+                </NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink tag={Link} to="/find-friends">
+                  Find Friends
                 </NavLink>
               </NavItem>
               <NavItem>

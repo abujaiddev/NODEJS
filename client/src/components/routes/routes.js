@@ -9,7 +9,8 @@ import Profile from "../dashboard/user/profile";
 import Users from "../users/users";
 import Settings from "../settings";
 import UserProfile from "../profile";
-
+import FindFriends from "../users/findFriends";
+import Userdashboard from "../user/user";
 
 export default function routes() {
   return (
@@ -17,10 +18,14 @@ export default function routes() {
       <Route path="/login" component={Login} />
       <Route path="/signup" component={Signup} />
       <UserRoute exact path="/" component={User} />
-      <UserRoute path="/user/profile" component={Profile} />
-      <UserRoute path="/users" component={Users} />
-      <UserRoute path="/settings" component={Settings} />
-      <UserRoute path="/:username" component={UserProfile} />
+      <UserRoute exact path="/user/profile" component={Profile} />
+      <UserRoute exact path="/users" component={Users} />
+      <UserRoute exact path="/settings" component={Settings} />
+      <UserRoute exact path="/username/:username" component={UserProfile} />
+
+      {/* friends */}
+      <UserRoute path="/find-friends" component={FindFriends} />
+      <UserRoute path="/user/:id" component={Userdashboard} />
     </Switch>
   );
 }
