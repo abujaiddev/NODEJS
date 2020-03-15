@@ -1,3 +1,20 @@
+.mr-106{
+      margin-left: 106px;
+      width: 685px;
+}
+.ml-5, .mx-5 {
+    margin-left: 7.3rem!important;
+}
+.y-pages{
+  width: 58%;
+    margin-right: 53px;
+}
+.languages {
+    font-size: 13px;
+}
+.unlist{
+  list-style:none;
+}
 ._34e {
   font-size: 14px;
   font-weight: 600;
@@ -120,4 +137,7 @@ h6.intro {
   font-size: 26px;
   background: #385898;
   border-radius: 50%;
+}
+.ls > .nav-link {
+    color: #333 !important;
 }

@@ -1,22 +1,4 @@
-.mainContainer {
-  background-color: gray;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 15px;
-  padding-right: 15px;
-}
-.mainRow {
-  display: flex;
-}
-.centerCol {
-  width: 695px;
-}
-.leftCol {
-  width: 231px;
-}
-.rightCol {
-  width: 231px;
-}
+
 img.friends-img {
   width: 100px;
   border-radius: 50%;
