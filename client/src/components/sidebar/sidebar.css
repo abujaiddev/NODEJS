@@ -1,0 +1,66 @@
+.i-message {
+  font-size: 26px;
+  color: #2125298c;
+  margin-top: -24px;
+}
+.add-bio {
+  text-align: right !important;
+  text-decoration: none;
+  padding-left: 147px;
+  color: #3578e5;
+  color: #3578e5;
+  font-size: 14px;
+  text-transform: capitalize;
+}
+.bio-short {
+  color: #1d2129;
+  text-align: center;
+  font-size: 14px;
+  opacity: 0.7;
+  margin-bottom: 4px;
+}
+.s-info {
+  font-size: 14px;
+  opacity: 0.7;
+}
+.bio-textarea {
+  overflow: hidden;
+  resize: none;
+  border: none;
+}
+.bio-t-b {
+  height: 62px;
+  background-color: #f5f6f7;
+}
+.btn-save {
+  padding: 3px;
+  text-align: center;
+  width: 50px;
+  background-color: #365899;
+  color: #ffff;
+  border: #365899;
+  font-size: 12px;
+  font-weight: bold;
+}
+.btn-public {
+  padding: 2px 5px;
+  text-align: center;
+  font-size: 12px;
+  font-weight: bold;
+  color: #90949c;
+}
+.btn-cancel {
+  padding: 3px 5px;
+  text-align: center;
+  font-size: 12px;
+  font-weight: bold;
+  background-color: #ebedf0;
+  color: #4b4f56;
+  border: 1px solid #ccd0d5;
+}
+.d-w-y-r {
+  border: 1px solid #ebedf0;
+}
+.form-control:focus {
+  box-shadow: none;
+}

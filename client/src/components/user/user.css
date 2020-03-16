@@ -1,0 +1,147 @@
+.mr-106 {
+  margin-left: 106px;
+  width: 685px;
+}
+.ml-5,
+.mx-5 {
+  margin-left: 7.3rem !important;
+}
+.y-pages {
+  width: 58%;
+  margin-right: 53px;
+}
+.languages {
+  font-size: 13px;
+}
+.unlist {
+  list-style: none;
+}
+._34e {
+  font-size: 14px;
+  font-weight: 600;
+}
+._692w {
+  width: 692px !important;
+}
+.card.cover {
+  border: none;
+  height: 300px;
+}
+.user-c {
+  border-radius: 50%;
+  position: relative;
+  top: -155px;
+  left: 16px;
+  z-index: 99;
+  border: 3px solid #fff;
+}
+.btn-user-friend {
+  width: 100px;
+  height: 25px;
+  color: white;
+  padding: 3px 4px 9px 8px;
+  font-size: 12px;
+  border-radius: 2px;
+  background-color: #4267b2;
+  border-color: #4267b2;
+  font-weight: bold;
+  position: relative;
+  top: -40px;
+}
+.btn-user-friend:hover {
+  width: 100px;
+  height: 25px;
+  color: white;
+  padding: 3px 4px 9px 8px;
+  font-size: 12px;
+  border-radius: 2px;
+  background-color: #3662b9;
+  border-color: #4267b2;
+  font-weight: bold;
+  position: relative;
+  top: -40px;
+  text-decoration: none;
+}
+._60h {
+  height: 60px;
+}
+ul.timeline {
+  list-style: none;
+}
+ul.timeline > li {
+  display: inline;
+
+  position: relative;
+  left: 142px;
+  top: -15px;
+  font-size: 15px;
+  font-weight: bold;
+  border-right: 1px solid #dae0e5;
+  padding: 10px;
+}
+.card._40h {
+  height: 40px;
+}
+.username {
+  position: relative;
+  left: 206px;
+  top: -230px;
+  color: #fff;
+  font-size: 24px;
+  font-weight: 600;
+}
+.username:hover {
+  position: relative;
+  left: 206px;
+  top: -230px;
+  color: #fff;
+  font-size: 24px;
+  font-weight: 600;
+  text-decoration: none;
+}
+ul.timeline > li a {
+  color: #3662b9;
+  text-decoration: none;
+}
+.btn-add {
+  z-index: 999;
+  position: relative;
+  top: -53px;
+  right: 40px;
+}
+.add-f {
+  position: relative;
+  top: -205px;
+  color: #4b4f56;
+  padding: 5px;
+  border: 1px solid #f5f6f7;
+  line-height: 0;
+  background: #f5f6f7;
+  border-radius: 2px;
+  font-size: 12px;
+  font-weight: bold;
+  background-clip: padding-box;
+  justify-content: center;
+  text-align: center;
+  float: right;
+  margin-left: 10px;
+}
+h6.intro {
+  display: inline-block;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 20px;
+}
+.intro-icon {
+  color: white;
+  padding: 6px;
+  font-size: 26px;
+  background: #385898;
+  border-radius: 50%;
+}
+.ls > .nav-link {
+  color: #333 !important;
+}
+.h-icon {
+  margin-right: 8px;
+}

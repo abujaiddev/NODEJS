@@ -1,6 +1,5 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
-
 import Login from "../auth/login";
 import Home from "../home";
 import UserRoute from "./UserRoute";
@@ -10,7 +9,7 @@ import Users from "../users/users";
 import Settings from "../settings";
 import UserProfile from "../profile";
 import FindFriends from "../users/findFriends";
-import Userdashboard from "../home/user";
+import Userdashboard from "../user/user";
 
 export default function routes() {
   return (

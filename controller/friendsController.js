@@ -27,7 +27,6 @@ exports.friends = async (req, res) => {
 
 exports.friend = async (req, res) => {
   try {
-    console.log(req.params.id);
     const friend = await User.findById(req.params.id);
     res.json(friend);
   } catch (error) {

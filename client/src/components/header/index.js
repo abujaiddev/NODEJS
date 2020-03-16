@@ -54,13 +54,13 @@ class Header extends React.Component {
                 </button>
               </NavItem>
             </Nav>
-            <Nav className="mr-auto" navbar>
+            <Nav className="mr-auto h-nav" navbar>
               <NavItem>
                 <NavLink
                   tag={Link}
                   to={`/username/${
                     isAuthenticated ? isAuthenticated.user.name : ""
-                    }`}
+                  }`}
                 >
                   <span className="c-username">
                     <img src={userPhoto} className="_30w" />
@@ -83,21 +83,23 @@ class Header extends React.Component {
                   Create
                 </NavLink>
               </NavItem>
-              <MdPeople className="icon" /><span className="notification">9</span>
-              <MdNotifications className="icon" /><span className="notification">5</span>
+              <MdPeople className="icon" />
+              <span className="notification">9</span>
+              <MdNotifications className="icon" />
+              <span className="notification">5</span>
               <MdHelp className="icon" />
 
-              <NavItem>
-                <UncontrolledDropdown nav inNavbar>
-                  <DropdownToggle nav caret></DropdownToggle>
-                  <DropdownMenu right>
-                    <DropdownItem tag={Link} to="/settings">
-                      Settings
-                    </DropdownItem>
-                    <DropdownItem onClick={this.logout}>Log Out</DropdownItem>
-                  </DropdownMenu>
-                </UncontrolledDropdown>
-              </NavItem>
+              {/* <NavItem> */}
+              <UncontrolledDropdown nav inNavbar>
+                <DropdownToggle nav caret></DropdownToggle>
+                <DropdownMenu right>
+                  <DropdownItem tag={Link} to="/settings">
+                    Settings
+                  </DropdownItem>
+                  <DropdownItem onClick={this.logout}>Log Out</DropdownItem>
+                </DropdownMenu>
+              </UncontrolledDropdown>
+              {/* </NavItem> */}
             </Nav>
           </Collapse>
         </Navbar>

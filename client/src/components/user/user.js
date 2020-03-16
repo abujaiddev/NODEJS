@@ -1,9 +1,34 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./user.css";
 import { useParams, Link } from "react-router-dom";
 import { MdPersonAdd, MdMessage, MdPublic } from "react-icons/md";
+
+import { connect } from "react-redux";
+import axios from "axios";
+import ProfileSidebar from "../sidebar/profileSidebar";
+
 export default function User(props) {
   let { id } = useParams();
+  const [userProfile, setUserProfile] = useState(0);
+  const [userAddress, setUserAddress] = useState(0);
+  useEffect(() => {
+    axios
+      .get(`/api/friend/${id}`)
+      .then(result => {
+        // console.log("++++++++++++++++++", result.data);
+        setUserProfile(result.data);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+    axios
+      .get(`/api/userAddress`)
+      .then(result => {
+        console.log(result.data);
+        setUserAddress(result.data);
+      })
+      .catch(err => console.log(err));
+  }, []);
   return (
     <div className="container">
       <div className="row">
@@ -20,7 +45,7 @@ export default function User(props) {
               />
             </a>
             <Link to="#" className="username">
-              Tom Cruz
+              {userProfile.username}
             </Link>
             <div className="btn-add">
               <Link to="#" className="add-f">
@@ -53,7 +78,7 @@ export default function User(props) {
             </div>
           </div>
           <div className="card mt-3">
-            <div class="card-header">DO YOU KNOW TOM?</div>
+            <div className="card-header">DO YOU KNOW TOM?</div>
             <div className="card-body _60h">
               <p>
                 To see what he shares with friends,{" "}
@@ -62,21 +87,10 @@ export default function User(props) {
             </div>
           </div>
           <div className="row mt-2">
-            <div className="col-sm-3">
-              <div className="card">
-                <div className="card-body">
-                  <MdPublic className="intro-icon" />{" "}
-                  <h6 className="intro">Intro</h6>
-                </div>
-              </div>
-              <div className="card mt-2">
-                <div className="card-body">Photos</div>
-              </div>
-              <div className="card mt-2">
-                <div className="card-body">Friends · 66</div>
-              </div>
+            <div className="col-sm-5">
+              <ProfileSidebar />
             </div>
-            <div className="col-9">
+            <div className="col-7">
               <div className="card">
                 <div className="card-body">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -92,3 +106,8 @@ export default function User(props) {
     </div>
   );
 }
+
+// const mapStateToProps = state => {
+//   return {};
+// };
+// export default connect(mapStateToProps)(User);

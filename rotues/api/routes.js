@@ -6,6 +6,7 @@ const profileController = require("../../controller/profileController");
 const authController = require("../../controller/authController");
 const auth = require("../../middleware/auth");
 const friendController = require("../../controller/friendsController");
+const addressContorller = require("../../controller/addressController");
 
 const multer = require("multer");
 
@@ -26,6 +27,7 @@ const upload = multer({
 // users
 router.post("/registerUser", userController.registerUser);
 router.get("/users", auth, userController.users);
+// router.put("/user", auth, userController.updateUser);
 router.get("/profile", auth, userController.profile);
 router.post("/auth", authController.auth);
 router.put("/profile/me", auth, userController.profileMe);
@@ -37,6 +39,10 @@ router.put(
   auth,
   profileController.profileUpdate
 );
+
+// User
+router.get("/userAddress", auth, addressContorller.address);
+router.put("/userAddress", auth, addressContorller.addressUpdate);
 
 // Friends
 router.post("/friendRequest/:id", auth, friendController.friendRequest);

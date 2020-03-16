@@ -39,6 +39,18 @@ exports.users = async (req, res) => {
   }
 };
 
+// update user
+exports.updateUser = async (req, res) => {
+  try {
+    // const user = await User.updateOne({ _id: req.user.id }, { ...req.body });
+    const user = await User.findById({ _id: req.user.id });
+
+    res.json({ msg: "record updated", user });
+  } catch (error) {
+    res.status(500).json({ msg: "server error" });
+  }
+};
+
 exports.profile = async (req, res) => {
   try {
     const profile = await User.findOne({ _id: req.user.id });
