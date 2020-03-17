@@ -93,9 +93,24 @@ class Header extends React.Component {
               <UncontrolledDropdown nav inNavbar>
                 <DropdownToggle nav caret></DropdownToggle>
                 <DropdownMenu right>
+                  <DropdownItem tag={Link} to="#">
+                    Find Groups
+                  </DropdownItem>
+                  <DropdownItem divider />
+                  <DropdownItem tag={Link} to="#">
+                    Addvertising on Facebook
+                  </DropdownItem>
+                  <DropdownItem divider />
+                  <DropdownItem tag={Link} to="#">
+                    Activity Log
+                  </DropdownItem>
+                  <DropdownItem tag={Link} to="#">
+                    News Feed prefernces
+                  </DropdownItem>
                   <DropdownItem tag={Link} to="/settings">
                     Settings
                   </DropdownItem>
+                  <DropdownItem divider />
                   <DropdownItem onClick={this.logout}>Log Out</DropdownItem>
                 </DropdownMenu>
               </UncontrolledDropdown>

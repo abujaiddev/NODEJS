@@ -1,19 +1,20 @@
-.mr-106{
-      margin-left: 106px;
-      width: 685px;
+.mr-106 {
+  margin-left: 106px;
+  width: 685px;
 }
-.ml-5, .mx-5 {
-    margin-left: 7.3rem!important;
+.ml-5,
+.mx-5 {
+  margin-left: 7.3rem !important;
 }
-.y-pages{
+.y-pages {
   width: 58%;
-    margin-right: 53px;
+  margin-right: 53px;
 }
 .languages {
-    font-size: 13px;
+  font-size: 13px;
 }
-.unlist{
-  list-style:none;
+.unlist {
+  list-style: none;
 }
 ._34e {
   font-size: 14px;
@@ -139,5 +140,5 @@ h6.intro {
   border-radius: 50%;
 }
 .ls > .nav-link {
-    color: #333 !important;
+  color: #333 !important;
 }

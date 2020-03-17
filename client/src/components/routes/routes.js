@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Route, Switch } from "react-router-dom";
 import Login from "../auth/login";
 import Home from "../home";
@@ -11,7 +11,16 @@ import UserProfile from "../profile";
 import FindFriends from "../users/findFriends";
 import Userdashboard from "../user/user";
 
-export default function routes() {
+export default function Routes() {
+  useEffect(() => {
+    let urlName = window.location.pathname.slice(1);
+    if (urlName === "settings") {
+      document.body.style.backgroundColor = "white";
+    } else {
+      document.body.style.backgroundColor = "#e9ebee";
+    }
+  });
+
   return (
     <Switch>
       <Route path="/login" component={Login} />

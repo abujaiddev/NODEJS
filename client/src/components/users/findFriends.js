@@ -29,6 +29,11 @@ class users extends Component {
                 <a href="#">View sent requests</a>
               </div>
             </div>
+            <div className="card _692w">
+              <div className="card-body">
+                <h6>People you may know</h6>
+              </div>
+            </div>
             {users.map(user => (
               <div className="card _692w" key={user._id}>
                 <div className="card-body">

@@ -1,7 +1,7 @@
 .i-message {
   font-size: 26px;
   color: #2125298c;
-  margin-top: -24px;
+  /* margin-top: -24px; */
 }
 .add-bio {
   text-align: right !important;
@@ -27,6 +27,7 @@
   overflow: hidden;
   resize: none;
   border: none;
+  border: 1px solid #adb5bd57;
 }
 .bio-t-b {
   height: 62px;
@@ -58,9 +59,75 @@
   color: #4b4f56;
   border: 1px solid #ccd0d5;
 }
-.d-w-y-r {
-  border: 1px solid #ebedf0;
-}
 .form-control:focus {
   box-shadow: none;
+}
+.bio {
+  opacity: 0.7;
+}
+.hm-1 {
+  margin-top: -13px;
+}
+.h-icon {
+  margin-right: 8px;
+  font-size: 16px;
+  color: #c2c3c4;
+}
+.showcase {
+  font-size: 14px;
+  color: #1c1e21;
+  text-align: center;
+}
+.star-wraper {
+  text-align: center;
+}
+.star {
+  border: 1px solid #4b4f56b3;
+  border-radius: 50%;
+  display: block;
+  font-size: 25px;
+  margin: 0 auto;
+  opacity: 0.7;
+}
+.add-featured {
+  position: relative;
+  left: 119px;
+  top: 5px;
+  color: #3578e5;
+  font-size: 14px;
+}
+.showcase p {
+  text-align: center;
+  line-height: 1.4;
+  margin-bottom: -22px;
+}
+.size-12 {
+  font-size: 12px;
+  color: #385898;
+  font-weight: 600;
+}
+.circle-icon {
+  border-radius: 50%;
+  text-align: center;
+  padding: 4px;
+  margin: 0 auto;
+  font-size: 25px;
+}
+.green {
+  color: #fff;
+  border: 1px solid #a5d950;
+  background-color: #a5d950;
+}
+.pink {
+  color: #fff;
+  border: 1px solid #f50e6b;
+  background-color: #f50e6b;
+}
+.btn-languages {
+  font-size: 16px;
+  font-weight: bold;
+  background-color: #f5f6f7;
+  border-color: #ccd0d5;
+  color: #4b4f56;
+  line-height: 1;
 }

@@ -1,15 +1,23 @@
-.mainContainer{
- margin-right: auto;
- margin-left: auto;
- padding-left: 15px;
- padding-right: 15px;
+.mainContainer {
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 .col6 {
-    background: aqua;
+  background: aqua;
 }
-.main-row{
-    display:flex
+.main-row {
+  display: flex;
 }
-.col3{
-    background-color: bisque;
+.col3 {
+  background-color: bisque;
+}
+li.list-group-item.d-flex.justify-content-between.align-items-center.st {
+  margin-left: -30px !important;
+  border-left: none;
+}
+.st {
+  border-left: none;
+  margin-left: -30px;
 }
