@@ -14,10 +14,15 @@
   background-color: bisque;
 }
 li.list-group-item.d-flex.justify-content-between.align-items-center.st {
-  margin-left: -30px !important;
+  margin-left: 0px !important;
   border-left: none;
 }
 .st {
   border-left: none;
   margin-left: -30px;
+}
+.st-wraper {
+  border: 1px solid gray;
+  margin-left: -32px;
+  min-height: 500px;
 }
