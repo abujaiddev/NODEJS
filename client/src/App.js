@@ -1,6 +1,6 @@
 import React from "react";
 import Header from "./components/header";
-import setAuthToken from "./components/util/setAuthToken";
+import setAuthToken from "./components/utils/setAuthToken";
 import jwt_decode from "jwt-decode";
 import store from "./components/store/store";
 import { setCurrentUser, logout } from "./components/store/actions/authAction";

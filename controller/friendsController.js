@@ -4,13 +4,18 @@ const Friend = require("../models/friends");
 exports.friendRequest = async (req, res) => {
   try {
     const friendId = req.params.id;
-    const friend = await new Friend({
-      ...req.body,
-      user_id: req.user.id,
-      friend_id: friendId
-    });
-    await friend.save();
-    res.json(friend);
+    const friendExists = await Friend.findOne({ friend_id: friendId });
+    if (friendExists) {
+      res.status(401).json({ msg: "friend request alredy sent" });
+    } else {
+      const friend = await new Friend({
+        ...req.body,
+        user_id: req.user.id,
+        friend_id: friendId
+      });
+      await friend.save();
+      res.json(friend);
+    }
   } catch (error) {
     res.status(500).json("server error");
   }

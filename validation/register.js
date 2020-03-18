@@ -9,9 +9,10 @@ module.exports = function validateLoginInput(data) {
   // username checks
   if (Validator.isEmpty(data.username)) {
     errors.username = "Username field is required";
-  } else if (!Validator.isAlpha(data.username)) {
-    errors.username = "Only alphabets allowed";
   }
+  // else if (!Validator.isAlpha(data.username)) {
+  //   errors.username = "Only alphabets allowed";
+  // }
   if (Validator.isEmpty(data.email)) {
     errors.email = "Email field is required";
   } else if (!Validator.isEmail(data.email)) {

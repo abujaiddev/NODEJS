@@ -19,10 +19,69 @@ li.list-group-item.d-flex.justify-content-between.align-items-center.st {
 }
 .st {
   border-left: none;
-  margin-left: -30px;
+  padding: 3px;
+  line-height: 0;
 }
 .st-wraper {
   border: 1px solid gray;
   margin-left: -32px;
   min-height: 500px;
+}
+.linkWrap {
+  font-size: 12px;
+  font-weight: 500;
+  color: #333333;
+}
+.setting-icon {
+  padding-right: 6px;
+}
+.s-link {
+  padding: 1px 0;
+}
+.s-link:hover {
+  padding: 1px 0;
+  background-color: #f5f6f7;
+}
+.w-220 {
+  max-width: 220px;
+}
+.active {
+  background-color: #c4d2e7;
+  color: #000;
+}
+.same {
+  color: #fff;
+  background-color: #7f8fb8;
+  border-radius: 50%;
+  padding: 2px;
+  text-align: center;
+}
+.blocking {
+  color: #fff;
+  background-color: #dc3545;
+  border-radius: 50%;
+  padding: 2px;
+  text-align: center;
+}
+.location {
+  color: #333;
+  border-radius: 50%;
+  text-align: center;
+  padding: 2px;
+  border: 1px solid #333;
+}
+.setting-group {
+  list-style: none;
+  padding-left: 45px;
+  padding-right: 15px;
+}
+.setting-c {
+  margin-left: 175px;
+}
+.username-wrapper {
+  padding: 22px 130px;
+  background: #f2f2f2;
+  position: relative;
+  top: -19px;
+  margin: -3px;
 }
