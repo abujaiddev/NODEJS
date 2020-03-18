@@ -27,8 +27,12 @@ const Schema = mongoose.Schema;
 
 const friendsSchema = new Schema(
   {
-    requester: { type: Schema.Types.ObjectId, ref: "Users" },
-    recipient: { type: Schema.Types.ObjectId, ref: "Users" },
+    requester: {
+      type: Schema.Types.ObjectId, ref: "Users"
+    },
+    recipient: {
+      type: Schema.Types.ObjectId, ref: "Users"
+    },
     status: {
       type: Number,
       enums: [

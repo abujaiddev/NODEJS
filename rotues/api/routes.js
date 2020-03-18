@@ -11,10 +11,10 @@ const addressContorller = require("../../controller/addressController");
 const multer = require("multer");
 
 const storage = multer.diskStorage({
-  destination: function(req, file, cb) {
+  destination: function (req, file, cb) {
     cb(null, "./uploads");
   },
-  filename: function(req, file, cb) {
+  filename: function (req, file, cb) {
     // cb(null, Date.now() + "-" + file.originalname);
     cb(null, file.originalname);
   }
@@ -45,7 +45,8 @@ router.get("/userAddress", auth, addressContorller.address);
 router.put("/userAddress", auth, addressContorller.addressUpdate);
 
 // Friends
-router.post("/friendRequest/:id", auth, friendController.friendRequest);
+// router.put("/friendRequest/:id", auth, friendController.friendRequest);
+router.put("/friendRequest/:id", auth, friendController.friendRequest);
 router.get("/friends", auth, friendController.friends);
 router.get("/friend/:id", auth, friendController.friend);
 
